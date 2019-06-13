@@ -1,0 +1,16 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    padding-bottom: 200px;
+}
+
+div {
+    height: auto;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 12pt;
+    font-family: 'avenir next';
+    text-align: justify;
+}
