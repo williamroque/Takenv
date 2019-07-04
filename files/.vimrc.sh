@@ -12,10 +12,10 @@ then
         echo "No changes made."
     else
         echo "Changes made."
-        python ~/.vimrc.py
+        python3 ~/.vimrc.py
     fi
 else
-    python ~/.vimrc.py
+    python3 ~/.vimrc.py
 fi
 
 # Delete copy

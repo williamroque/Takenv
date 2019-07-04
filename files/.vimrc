@@ -30,6 +30,11 @@ set autochdir
 " extra margin
 set foldcolumn=1
 
+" automatically fold
+set foldmethod=syntax
+set foldnestmax=1
+set nofoldenable
+
 " status line
 set laststatus=2
 set ttimeoutlen=50
@@ -99,6 +104,9 @@ set formatoptions=qrn1
 " general auto comment disable
 au FileType vim set fo-=c fo-=r fo-=o
 au FileType javascript.jsx set fo-=c fo-=r fo-=o
+
+" disable swap files when editting crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 " new tab
 nmap <Leader>te :tabedit 
@@ -253,11 +261,15 @@ call plug#end()
 nmap <leader>pi :PlugInstall<CR>
 
 " markdown environment
+let g:limelight_conceal_ctermfg = 'gray'
 function TgGoyoMD()
-    " Limelight!!
+    Limelight!!
+    set spell!
+    call deoplete#custom#option('auto_complete', v:false)
     Goyo
 endfunction
-" autocmd BufNewFile,BufRead *.md call TgGoyoMD()
+
+autocmd BufNewFile,BufRead *.md call TgGoyoMD()
 nmap <silent> <Leader>md :call TgGoyoMD()<CR>
 
 " deoplete
@@ -319,8 +331,11 @@ nmap <S-j> <C-e>
 nmap <S-k> <C-y>
 
 " access clipboard
-nmap <Leader>v "*
-vmap <Leader>v "*
+"nmap <Leader>v "*
+"map <Leader>v "*
+
+" automatically access clipboard on yank and paste
+set clipboard=unnamed
 
 " access black hole
 nmap <Leader>b "_

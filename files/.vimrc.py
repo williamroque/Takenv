@@ -2,10 +2,12 @@ import smtplib
 import datetime
 import os
 
+import getpass
+
 # [Plagiarized] from stackabuse.com
 
-gmail_user = 'william.roque@mascamarena.es'
-gmail_password = 'Etquomadriserit16'
+gmail_user = 'william.aroque@gmail.com'
+gmail_password = getpass.getpass(prompt='Enter password:', stream=None)
 
 sfrom = gmail_user
 to = 'william.aroque@gmail.com'
