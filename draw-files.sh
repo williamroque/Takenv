@@ -17,3 +17,6 @@ cp ~/.vimrc.py files
 cp ~/.vimrc.sh files
 
 cp ~/.vox.sh files
+
+cp ~/.clock.sh files
+cp ~/.clock.py files

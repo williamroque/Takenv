@@ -14,9 +14,9 @@ ZSH_THEME="cdimascio-lambda"
 
 # DISABLE_AUTO_TITLE="true"
 
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -55,6 +55,7 @@ alias preview="~/.preview.sh"
 alias mds="cp ~/.mdstyle.css ."
 alias getip="ifconfig | grep -E -o '([0-999]+\.){3}([0-999]+)' | sed -n 2p"
 alias vox="sh ~/.vox.sh"
+alias clock="sh ~/.clock.sh"
 
 function change() {
     git add .
@@ -88,3 +89,5 @@ export KEYTIMEOUT=1
 # Smart arrow history
 bindkey '^[[A' up-line-or-search                                                
 bindkey '^[[B' down-line-or-search
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

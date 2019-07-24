@@ -32,7 +32,6 @@ set foldcolumn=1
 
 " automatically fold
 set foldmethod=syntax
-set foldnestmax=1
 set nofoldenable
 
 " status line
@@ -167,6 +166,9 @@ nmap <silent> <Leader>spv :vsplit<CR>
 
 " edit file
 nmap <Leader>oe :e 
+
+" jump to next error
+nmap <silent> <Leader>ne :ALENext<CR>
 
 " height of command displayer
 set cmdheight=2
@@ -312,7 +314,7 @@ map <Leader>f :w<CR>
 map <Leader>c :!
 
 " npm start
-map <Leader>n :!npm start<CR>
+map <Leader>ns :!npm start<CR>
 
 " save and close file
 map <Leader>x :x<CR>
