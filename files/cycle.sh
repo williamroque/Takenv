@@ -59,3 +59,4 @@ done
 # Wait for Return keypress to clear
 read
 clear
+printf '\e[3J'

@@ -15,7 +15,6 @@ set number
 
 " change leader
 let mapleader=","
-let maplocalleader="§"
 
 " spell checking and encoding
 set spelllang=en_us
@@ -71,7 +70,7 @@ let g:airline_symbols.linenr = ''
 " buffer is not necessarily written to disk
 set hidden
 
-set wildmenu " tab for autocompletions in normal mode
+set wildmenu " tab for autocompletions in command mode
 set wildchar=<TAB>
 set wildmode=list:longest
 
@@ -102,7 +101,7 @@ set formatoptions=qrn1
 
 " general auto comment disable
 au FileType vim set fo-=c fo-=r fo-=o
-au FileType javascript.jsx set fo-=c fo-=r fo-=o
+au FileType javascript set fo-=c fo-=r fo-=o
 
 " disable swap files when editting crontab
 autocmd filetype crontab setlocal nobackup nowritebackup
@@ -125,15 +124,7 @@ inoremap kk <Esc>k
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" duplicate lines
-noremap <C-S-Up> YP
-noremap <C-S-Down> Yp
-
 " move line up/down
-nnoremap <silent> <S-Down> :m .+1<CR>==
-nnoremap <silent> <S-Up> :m .-2<CR>==
-inoremap <silent> <S-Down> <Esc>:m .+1<CR>==gi
-inoremap <silent> <S-Up> <Esc>:m .-2<CR>==gi
 vnoremap <silent> <S-Down> :m '>+1<CR>gv=gv
 vnoremap <silent> <S-Up> :m '<-2<CR>gv=gv
 
@@ -181,7 +172,7 @@ nnoremap O O<Esc>i
 nmap zj o<Esc>
 nmap zk O<Esc>
 
-" remap : to ;
+" map ; to :
 nmap ; :
 
 " bar shaped cursor in insert mode
@@ -216,7 +207,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " markdown
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/limelight.vim'
 
 " HTML
 Plug 'alvan/vim-closetag'
@@ -224,12 +215,12 @@ Plug 'mattn/emmet-vim'
 Plug 'jaxbot/browserlink.vim'
 
 " theme
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 
 " editing
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'on':  'ALEToggle' }
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -246,9 +237,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 " navigation
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'scrooloose/nerdtree'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 
 " version control
@@ -259,14 +250,15 @@ if has('nvim')
     Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 endif
 
+nmap <Leader>at :ALEToggle<CR>
+
 call plug#end()
-nmap <leader>pi :PlugInstall<CR>
+nmap <Leader>pi :PlugInstall<CR>
 
 " markdown environment
 let g:limelight_conceal_ctermfg = 'gray'
 function TgGoyoMD()
-    Limelight!!
-    set spell!
+    set spell
     call deoplete#custom#option('auto_complete', v:false)
     Goyo
 endfunction
@@ -278,7 +270,7 @@ nmap <silent> <Leader>md :call TgGoyoMD()<CR>
 let g:deoplete#enable_at_startup = 1
 
 " linting
-let g:ale_javascript_eslint_use_global = 1
+" let g:ale_javascript_eslint_use_global = 1
 
 " colorscheme
 
@@ -291,14 +283,14 @@ colorscheme gruvbox
 
 " NERDTree
 " when vim starts on a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " close vim when NT is the only window left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " map for NT toggle
-map <C-o> :NERDTreeToggle<CR>
+" map <C-o> :NERDTreeToggle<CR>
 
 " change windows-map
 nmap <Leader>w <C-w><C-w>
@@ -333,8 +325,8 @@ nmap <S-j> <C-e>
 nmap <S-k> <C-y>
 
 " access clipboard
-"nmap <Leader>v "*
-"map <Leader>v "*
+" nmap <Leader>v "*
+" map <Leader>v "*
 
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
@@ -368,7 +360,7 @@ vnoremap <Space> :norm @q<CR>
 " replace all matching word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-" preview script
+" preview markdown
 nnoremap <Leader>pv :!~/cbin/preview<CR>
 
 " read file

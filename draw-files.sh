@@ -3,7 +3,7 @@ cp -R ~/dragon files
 cp ~/.vimrc files
 cp ~/.tmux.conf files
 cp ~/.zshrc files
-cp ~/.terminit.sh files
+cp ~/.terminit.py files
 
 cp ~/.backup.sh files
 cp ~/.cbackup.sh files

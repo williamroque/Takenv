@@ -16,7 +16,7 @@ ZSH_THEME="cdimascio-lambda"
 
 # ENABLE_CORRECTION="true"
 
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting) 
+plugins=(git zsh-syntax-highlighting) 
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,10 +42,11 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 export HOMEBREW_GITHUB_API_TOKEN=27a1744305cfd7a7d58a16c2c7b9a0bbf90b1b22
 
-# Python path
+# custom paths
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin
+export PATH=$HOME/.npm-global/bin:$PATH
 
-# Custom aliases
+# custom aliases
 alias openas='sh ~/.openas.sh'
 alias vimrc='sh ~/.vimrc.sh'
 alias backup='sh ~/.backup.sh'
@@ -56,6 +57,7 @@ alias mds="cp ~/.mdstyle.css ."
 alias getip="ifconfig | grep -E -o '([0-999]+\.){3}([0-999]+)' | sed -n 2p"
 alias vox="sh ~/.vox.sh"
 alias clock="sh ~/.clock.sh"
+alias ss="cmatrix -s; clear"
 
 function change() {
     git add .
@@ -84,10 +86,16 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+#zle -N self-insert url-quote-magic
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 export KEYTIMEOUT=1
 
-# Smart arrow history
+# smart arrow history
 bindkey '^[[A' up-line-or-search                                                
 bindkey '^[[B' down-line-or-search
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$PATH:/usr/local/bin"

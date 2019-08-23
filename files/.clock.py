@@ -21,7 +21,7 @@ def set_timer(hours, minutes, seconds, message):
     global ongoing_utility
     ongoing_utility = 1
     time.sleep(t)
-    os.system('say {}'.format(message))
+    os.system('display dialog "{}"'.format(message))
 
 def set_alarm(t, message):
     if re.match('^(0[0-9]|1[0-9]|2[0-3]|[0-9])(:[0-5][0-9]){2}$', t):
@@ -34,7 +34,7 @@ def set_alarm(t, message):
             while delta > datetime.timedelta(0):
                 delta = parsed_time - datetime.datetime.now()
                 time.sleep(5)
-            os.system('say {}'.format(message))
+            os.system('display dialog "{}"'.format(message))
         else:
             print('Date earlier than now')
     else:
