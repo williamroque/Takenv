@@ -1,3 +1,3 @@
 cp ~/.splash.py .
-python3 .splash.py
+python .splash.py
 rm .splash.py

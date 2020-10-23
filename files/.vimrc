@@ -10,8 +10,8 @@ set backspace=indent,eol,start
 " turn on sytax highlighting
 syntax on
 
-" turn on line count
-set number
+" removes delays
+set updatetime=300
 
 " change leader
 let mapleader=","
@@ -23,11 +23,11 @@ set encoding=utf-8 nobomb
 " reload files changed externally
 set autoread
 
-" automatically cwd into file directory
+" automatically change cwd to file directory
 set autochdir
 
 " extra margin
-set foldcolumn=1
+" set foldcolumn=1
 
 " automatically fold
 set foldmethod=syntax
@@ -116,17 +116,11 @@ nmap <Leader>tc :tabclose<CR>
 nmap <silent> <Leader>to :tabonly<CR>
 
 " autoesc
-inoremap jj <Esc>j
 inoremap jk <Esc>
-inoremap kk <Esc>k
 
 " faster scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-
-" move line up/down
-vnoremap <silent> <S-Down> :m '>+1<CR>gv=gv
-vnoremap <silent> <S-Up> :m '<-2<CR>gv=gv
 
 " open file
 noremap <silent> <Leader>op :!open %<CR>
@@ -141,13 +135,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " close window
-noremap <silent> <leader>q :silent clo<CR>
+noremap <silent> <leader>qu :silent clo<CR>
 
 " resize splits
 nnoremap <silent> <Leader>sh+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>sh- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>sv+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>sv- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <Leader>seq <C-w>=
 
 " split horizontally
 nmap <silent> <Leader>sph :split<CR>
@@ -158,9 +153,6 @@ nmap <silent> <Leader>spv :vsplit<CR>
 " edit file
 nmap <Leader>oe :e 
 
-" jump to next error
-nmap <silent> <Leader>ne :ALENext<CR>
-
 " height of command displayer
 set cmdheight=2
 
@@ -168,7 +160,7 @@ set cmdheight=2
 nnoremap o o<Esc>i
 nnoremap O O<Esc>i
 
-" open newline without leaving
+" open newline without leaving command mode
 nmap zj o<Esc>
 nmap zk O<Esc>
 
@@ -207,92 +199,153 @@ Plug 'vim-airline/vim-airline-themes'
 
 " markdown
 Plug 'junegunn/goyo.vim'
-" Plug 'junegunn/limelight.vim'
 
 " HTML
-Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
-Plug 'jaxbot/browserlink.vim'
 
 " theme
-" Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 
 " editing
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'on':  'ALEToggle' }
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 " language
 Plug 'sheerun/vim-polyglot'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " navigation
-" Plug 'scrooloose/nerdtree'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'bkad/CamelCaseMotion'
 
 " version control
 Plug 'airblade/vim-gitgutter'
 
-" misc
-if has('nvim')
-    Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
-endif
+call plug#end()
 
 nmap <Leader>at :ALEToggle<CR>
 
-call plug#end()
 nmap <Leader>pi :PlugInstall<CR>
 
 " markdown environment
-let g:limelight_conceal_ctermfg = 'gray'
 function TgGoyoMD()
     set spell
-    call deoplete#custom#option('auto_complete', v:false)
     Goyo
 endfunction
 
 autocmd BufNewFile,BufRead *.md call TgGoyoMD()
 nmap <silent> <Leader>md :call TgGoyoMD()<CR>
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" toggle spellcheck language 
+function ToggleLang()
+    set spell
+    if &spelllang == "en_us"
+        set spelllang=pt_br
+    else
+        set spelllang=en_us
+    endif
+endfunction
+nmap <silent> <Leader>tl :call ToggleLang()<CR>
 
-" linting
-" let g:ale_javascript_eslint_use_global = 1
+" language server
+
+set shortmess+=c
+
+" <c-space> for completion
+if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+else
+    inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" use enter to confirm and format on enter
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" show all diagnostics
+nnoremap <silent><nowait> <Leader>ca :<C-u>CocList diagnostics<cr>
+
+" manage extensions
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+
+" smart code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" show documentation
+nnoremap <silent> <Leader>doc :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+endfunction
+
+" highlight symbol
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+" format selection
+xmap for <Plug>(coc-format-selected)
+nmap for <Plug>(coc-format-selected)
+
+" format document
+command! -nargs=0 Format :call CocAction('format')
+
+" something to do with signature
+augroup mygroup
+  autocmd!
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" autofix
+nmap <leader>qf <Plug>(coc-fix-current)
+
+" codeaction
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" function and class objects
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " colorscheme
-
-" gruvbox
 set bg=dark
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-let g:gruvbox_italic=0
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
+let g:gitgutter_set_sign_backgrounds=1
+let g:gitgutter_sign_removed='-'
+highlight Normal ctermbg=NONE
+highlight SignColumn ctermbg=NONE
+highlight GitGutterAdd ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 
-" NERDTree
-" when vim starts on a directory
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" close vim when NT is the only window left
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" map for NT toggle
-" map <C-o> :NERDTreeToggle<CR>
-
-" change windows-map
+" change windows
 nmap <Leader>w <C-w><C-w>
 
 " emmet
@@ -301,9 +354,6 @@ let g:user_emmet_leader_key="§"
 
 " save files quickly
 map <Leader>f :w<CR>
-
-" open command prompt
-map <Leader>c :!
 
 " npm start
 map <Leader>ns :!npm start<CR>
@@ -324,9 +374,12 @@ nmap <S-j> <C-e>
 " page up map
 nmap <S-k> <C-y>
 
-" access clipboard
-" nmap <Leader>v "*
-" map <Leader>v "*
+" CamelCaseMotion
+nmap <silent> w <Plug>CamelCaseMotion_w
+nmap <silent> b <Plug>CamelCaseMotion_b
+nmap <silent> e <Plug>CamelCaseMotion_e
+nmap <silent> ge <Plug>CamelCaseMotion_ge
+xmap <silent> iw <Plug>CamelCaseMotion_iw
 
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
@@ -338,21 +391,6 @@ nmap <Leader>b "_
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
 
-" language client neovim
-let g:LanguageClient_autoStart = 1
-nnoremap <leader>lcs :LanguageClientStart<CR>
-
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'go': ['go-langserver'] }
-
-noremap <silent> HH :call LanguageClient_textDocument_hover()<CR>
-noremap <silent> ZZ :call LanguageClient_textDocument_definition()<CR>
-noremap <silent> RR :call LanguageClient_textDocument_rename()<CR>
-noremap <silent> SS :call LanugageClient_textDocument_documentSymbol()<CR>
-
 " macro keymap
 nnoremap <Space> @q
 vnoremap <Space> :norm @q<CR>
@@ -363,5 +401,5 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " preview markdown
 nnoremap <Leader>pv :!~/cbin/preview<CR>
 
-" read file
-nmap <Leader>r :r 
+" file navigation
+nnoremap <Leader>of :Files 

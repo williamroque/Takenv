@@ -4,8 +4,6 @@ import os
 
 import getpass
 
-# [Plagiarized] from stackabuse.com
-
 gmail_user = 'william.aroque@gmail.com'
 gmail_password = getpass.getpass(prompt='Enter password:', stream=None)
 

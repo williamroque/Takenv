@@ -1,28 +1,7 @@
-export ZSH="/Users/williamroque/.oh-my-zsh"
+export ZSH="/Users/jetblack/.oh-my-zsh"
+ZSH_DISABLE_COMPFIX=true
 
 ZSH_THEME="cdimascio-lambda"
-
-# CASE_SENSITIVE="true"
-
-# HYPHEN_INSENSITIVE="true"
-
-# DISABLE_AUTO_UPDATE="true"
-
-# export UPDATE_ZSH_DAYS=13
-
-# DISABLE_LS_COLORS="true"
-
-# DISABLE_AUTO_TITLE="true"
-
-# ENABLE_CORRECTION="true"
-
-# COMPLETION_WAITING_DOTS="true"
-
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# HIST_STAMPS="mm/dd/yyyy"
-
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(git zsh-syntax-highlighting) 
 
@@ -45,6 +24,7 @@ export HOMEBREW_GITHUB_API_TOKEN=27a1744305cfd7a7d58a16c2c7b9a0bbf90b1b22
 # custom paths
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin
 export PATH=$HOME/.npm-global/bin:$PATH
+export PATH=$PATH:$HOME/cbin
 
 # custom aliases
 alias openas='sh ~/.openas.sh'
@@ -57,7 +37,15 @@ alias mds="cp ~/.mdstyle.css ."
 alias getip="ifconfig | grep -E -o '([0-999]+\.){3}([0-999]+)' | sed -n 2p"
 alias vox="sh ~/.vox.sh"
 alias clock="sh ~/.clock.sh"
-alias ss="cmatrix -s; clear"
+alias ss="cmatrix -s; exit"
+alias cls="python -c 'print(\"\\x1bc\\033[3J\", end=\"\")'"
+alias rm="trash"
+alias breaks="python ~/.breaks.py"
+alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
+alias dispov="osascript ~/cbin/dispov.scpt"
+alias gest="python ~/gestures.py"
+alias sec="python ~/secure.py"
+alias imgtxt="python ~/imgtxt.py"
 
 function change() {
     git add .
@@ -96,6 +84,14 @@ export KEYTIMEOUT=1
 bindkey '^[[A' up-line-or-search                                                
 bindkey '^[[B' down-line-or-search
 
+export PATH="$PATH:/usr/local/bin"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:/usr/local/bin"
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
