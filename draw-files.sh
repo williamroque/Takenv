@@ -3,13 +3,11 @@ mkdir files
 
 cp -R ~/dragon files
 
-cp ~/.vimrc files
 cp ~/.tmux.conf files
 cp ~/.zshrc files
 cp ~/.terminit.py files
 
-mkdir files/ranger
-cp ~/.config/ranger/* files/ranger
+cp -r ~/.config files
 
 cp ~/iTerm2/com.googlecode.iterm2.plist files
 

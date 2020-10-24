@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<map>
+  <int name="mouseMode" value="0" />
+  <int name="penType" value="11" />
+  <int name="strokeCounter" value="102" />
+  <int name="touchUI" value="1" />
+  <float name="pageHeight" value="1663" />
+  <float name="pageWidth" value="1030" />
+  <float name="preScale" value="0.853333" />
+  <string name="currFolder" value="" />
+  <string name="docTags" value="" />
+  <string name="docTitle" value="" />
+  <string name="fileExt" value="html" />
+  <string name="lastURL" value="" />
+  <string name="mainWindowGeometry" value="AdnQywACAAAAAAAAAAAAFwAABZ8AAAM8AAAAAAAAAAAAAAJHAAAA/QAAAAACAAAABaA=" />
+  <string name="mainWindowState" value="AAAA/wAAAAD9AAAAAQAAAAAAAAEAAAAC7PwCAAAAAfsAAAAYAGIAbwBvAGsAbQBhAHIAawBEAG8AYwBrAQAAACQAAALsAAAAPwD///8AAASUAAAC7AAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAAEAB0AG8AbwBsAEIAYQByADABAAAAAP////8AAAAAAAAAAA==" />
+  <string name="recentDocs" value="" />
+  <string name="syncFolder" value="" />
+  <string name="syncPass" value="" />
+  <string name="syncServer" value="" />
+  <string name="syncUser" value="" />
+  <string name="toolBars" value="docTitle,stretch,actionSave,separator,actionDraw,actionErase,actionSelect,actionInsert_Space,separator,undoRedoBtn,separator,actionCut,actionCopy,actionPaste,separator,actionShow_Bookmarks,action_Previous_Page,action_Next_Page,separator,actionOverflow_Menu" />
+  <string name="toolModes" value="15 18 27" />
+  <pen color="4278190080" width="1.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4294901760" width="1.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4278255360" width="1.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4278190335" width="1.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4278190080" width="2.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4294901760" width="2.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4278255360" width="2.4" pressure="2" drawunder="false" snaptogrid="false" />
+  <pen color="4278190335" width="2.4" pressure="2" drawunder="false" snaptogrid="false" />
+</map>

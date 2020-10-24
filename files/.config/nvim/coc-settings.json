@@ -1,0 +1,10 @@
+{
+    "languageserver": {
+        "html": {
+            "filetypes": ["html"],
+            "format.enable": false
+        }
+    },
+    "diagnostic.errorSign": ">>",
+    "diagnostic.warningSign": ">"
+}
