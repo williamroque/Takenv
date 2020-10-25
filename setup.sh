@@ -1,1 +1,2 @@
-cp -R files/* ~
+rm -rf .config
+cp -R files/. ~
