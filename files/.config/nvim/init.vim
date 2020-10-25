@@ -14,7 +14,7 @@ syntax on
 set updatetime=300
 
 " change leader
-let mapleader=","
+let mapleader=','
 
 " spell checking and encoding
 set spelllang=en_us
@@ -38,34 +38,34 @@ set laststatus=2
 set ttimeoutlen=50
 let g:airline_theme='base16'
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+    let g:airline_symbols={}
 endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep='»'
+let g:airline_left_sep='▶'
+let g:airline_right_sep='«'
+let g:airline_right_sep='◀'
+let g:airline_symbols.linenr='␊'
+let g:airline_symbols.linenr='␤'
+let g:airline_symbols.linenr='¶'
+let g:airline_symbols.branch='⎇'
+let g:airline_symbols.paste='ρ'
+let g:airline_symbols.paste='Þ'
+let g:airline_symbols.paste='∥'
+let g:airline_symbols.whitespace='Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_symbols.branch=''
+let g:airline_symbols.readonly=''
+let g:airline_symbols.linenr=''
 
 " buffer is not necessarily written to disk
 set hidden
@@ -138,10 +138,10 @@ nnoremap <C-l> <C-w>l
 noremap <silent> <leader>qu :silent clo<CR>
 
 " resize splits
-nnoremap <silent> <Leader>sh+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>sh- :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>sv+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader>sv- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <Leader>sh+ :exe 'resize ' . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>sh- :exe 'resize ' . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>sv+ :exe 'vertical resize ' . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>sv- :exe 'vertical resize ' . (winwidth(0) * 2/3)<CR>
 nnoremap <silent> <Leader>seq <C-w>=
 
 " split horizontally
@@ -168,8 +168,8 @@ nmap zk O<Esc>
 nmap ; :
 
 " bar shaped cursor in insert mode
-let &t_SI = "\<Esc>]1337;CursorShape=1\x7"
-let &t_EI = "\<Esc>]1337;CursorShape=0\x7"
+let &t_SI='\<Esc>]1337;CursorShape=1\x7'
+let &t_EI='\<Esc>]1337;CursorShape=0\x7'
 
 set cursorline " highlight current line
 set splitbelow splitright " how to split new windows
@@ -208,7 +208,7 @@ Plug 'morhetz/gruvbox'
 
 " editing
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'on':  'ALEToggle' }
+Plug 'dense-analysis/ale'
 
 " language
 Plug 'sheerun/vim-polyglot'
@@ -225,7 +225,12 @@ Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-nmap <Leader>at :ALEToggle<CR>
+" ALE
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'javascript': ['eslint']
+  \ }
+let g:ale_javascript_eslint_suppress_missing_config = 1
 
 nmap <Leader>pi :PlugInstall<CR>
 
@@ -241,7 +246,7 @@ nmap <silent> <Leader>md :call TgGoyoMD()<CR>
 " toggle spellcheck language 
 function ToggleLang()
     set spell
-    if &spelllang == "en_us"
+    if &spelllang == 'en_us'
         set spelllang=pt_br
     else
         set spelllang=en_us
@@ -262,7 +267,7 @@ endif
 
 " use enter to confirm and format on enter
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                              \: '\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>'
 
 " navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -289,7 +294,7 @@ function! s:show_documentation()
     elseif (coc#rpc#ready())
         call CocActionAsync('doHover')
     else
-        execute '!' . &keywordprg . " " . expand('<cword>')
+        execute '!' . &keywordprg . ' ' . expand('<cword>')
     endif
 endfunction
 
@@ -331,11 +336,11 @@ omap ac <Plug>(coc-classobj-a)
 
 " colorscheme
 set bg=dark
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f='\<Esc>[38;2;%lu;%lu;%lum'
+let &t_8b='\<Esc>[48;2;%lu;%lu;%lum'
 let g:gruvbox_italic=1
 let g:gruvbox_italicize_strings=1
-let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 let g:gitgutter_set_sign_backgrounds=1
 let g:gitgutter_sign_removed='-'
@@ -347,15 +352,19 @@ highlight GitGutterDelete ctermfg=1
 highlight CocWarningSign ctermbg=NONE
 highlight CocErrorSign ctermbg=NONE
 highlight CocFloating ctermbg=0
+highlight ALEWarningSign ctermbg=NONE
+highlight ALEErrorSign ctermbg=NONE
 highlight link CocWarningSign GruvboxYellow
 highlight link CocErrorSign GruvboxRed
+highlight link ALEWarningSign GruvboxYellow
+highlight link ALEErrorSign GruvboxRed
 
 " change windows
 nmap <Leader>w <C-w><C-w>
 
 " emmet
 let g:user_emmet_mode='ni'
-let g:user_emmet_leader_key="§"
+let g:user_emmet_leader_key='§'
 
 " save files quickly
 map <Leader>f :w<CR>

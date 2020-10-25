@@ -531,9 +531,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>443 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>237 79 1044 718 0 0 1440 875 </string>
+	<string>269 101 980 674 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>396 79 1044 718 0 0 1440 875 </string>
+	<string>186 174 852 608 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>396 31 1044 718 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -815,7 +815,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>128</integer>
+			<integer>120</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -1240,7 +1240,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>30</integer>
+			<integer>28</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1320,6 +1320,10 @@
 	<true/>
 	<key>NoSyncConfirmRunOpenFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
+	<integer>0</integer>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
@@ -1332,12 +1336,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{334, 767}</string>
+		<string>{147, 759}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>1A6F72D1-9B54-4ECC-8540-691BF75CD77E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>261</integer>
+	<integer>268</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2153,7 +2157,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-23T19:44:18Z</date>
+	<date>2020-10-24T20:01:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SoundForEsc</key>

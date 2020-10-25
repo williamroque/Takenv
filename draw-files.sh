@@ -7,7 +7,7 @@ cp ~/.tmux.conf files
 cp ~/.zshrc files
 cp ~/.terminit.py files
 
-cp -r ~/.config files
+cp -R ~/.config files
 
 cp ~/iTerm2/com.googlecode.iterm2.plist files
 
