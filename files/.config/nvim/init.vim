@@ -346,6 +346,7 @@ let g:gitgutter_set_sign_backgrounds=1
 let g:gitgutter_sign_removed='-'
 highlight Normal ctermbg=NONE
 highlight SignColumn ctermbg=NONE
+highlight CursorLineNR ctermbg=NONE
 highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
