@@ -1,1 +1,1 @@
-cp files/* ~
+cp -R files/* ~
