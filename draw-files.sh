@@ -26,3 +26,12 @@ cp ~/.vox.sh files
 
 cp ~/.clock.sh files
 cp ~/.clock.py files
+
+cp ~/func.py files
+cp ~/imgtxt.py files
+cp ~/ptable.py files
+cp ~/secure.py files
+cp ~/spades.py files
+cp ~/active.scpt files
+cp ~/ptable.json files
+cp ~/combinations.json files

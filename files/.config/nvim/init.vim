@@ -267,7 +267,7 @@ endif
 
 " use enter to confirm and format on enter
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: '\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>'
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
