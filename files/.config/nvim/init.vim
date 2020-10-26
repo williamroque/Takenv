@@ -37,6 +37,7 @@ set nofoldenable
 set laststatus=2
 set ttimeoutlen=50
 let g:airline_theme='base16'
+let g:airline_section_y = '%{strftime("%H:%M")}'
 
 let g:airline_powerline_fonts=1
 
@@ -129,10 +130,21 @@ noremap <silent> <Leader>op :!open %<CR>
 nnoremap <silent> <Leader>ts :set spell!<CR>
 
 " split window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" terminal
+tnoremap <Esc> <C-\><C-n>
 
 " close window
 noremap <silent> <leader>qu :silent clo<CR>
@@ -143,15 +155,6 @@ nnoremap <silent> <Leader>sh- :exe 'resize ' . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>sv+ :exe 'vertical resize ' . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>sv- :exe 'vertical resize ' . (winwidth(0) * 2/3)<CR>
 nnoremap <silent> <Leader>seq <C-w>=
-
-" split horizontally
-nmap <silent> <Leader>sph :split<CR>
-
-" split vertically
-nmap <silent> <Leader>spv :vsplit<CR>
-
-" edit file
-nmap <Leader>oe :e 
 
 " height of command displayer
 set cmdheight=2
@@ -380,7 +383,6 @@ map <Leader>x :x<CR>
 map <Leader>e :q!<CR>
 
 " set hybrid line numbers
-set number relativenumber
 set nu rnu
 
 " page down map
@@ -398,9 +400,6 @@ xmap <silent> iw <Plug>CamelCaseMotion_iw
 
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
-
-" access black hole
-nmap <Leader>b "_
 
 " disable error bell
 set noeb vb t_vb=
