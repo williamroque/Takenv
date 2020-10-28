@@ -23,9 +23,6 @@ set encoding=utf-8 nobomb
 " reload files changed externally
 set autoread
 
-" automatically change cwd to file directory
-set autochdir
-
 " extra margin
 " set foldcolumn=1
 
@@ -373,8 +370,12 @@ let g:user_emmet_leader_key='§'
 " save files quickly
 map <Leader>f :w<CR>
 
-" npm start
-map <Leader>ns :!npm start<CR>
+" fzf insert path
+func! s:insert_file_name(lines)
+    let @@ = fnamemodify(a:lines[0], ":p")
+    normal! p
+endfunc
+let g:fzf_action = { 'ctrl-r': function('s:insert_file_name')}
 
 " save and close file
 map <Leader>x :x<CR>
@@ -403,17 +404,10 @@ set clipboard=unnamed
 
 " disable error bell
 set noeb vb t_vb=
-au GUIEnter * set vb t_vb=
 
 " macro keymap
 nnoremap <Space> @q
 vnoremap <Space> :norm @q<CR>
-
-" replace all matching word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
-" preview markdown
-nnoremap <Leader>pv :!~/cbin/preview<CR>
 
 " file navigation
 nnoremap <Leader>of :Files 

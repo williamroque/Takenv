@@ -1,5 +1,8 @@
 {
     "html.format.enable": false,
     "diagnostic.errorSign": ">>",
-    "diagnostic.warningSign": ">"
+    "diagnostic.warningSign": ">",
+    "python.jediEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false
 }
