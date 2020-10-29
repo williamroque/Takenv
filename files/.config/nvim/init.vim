@@ -23,9 +23,6 @@ set encoding=utf-8 nobomb
 " reload files changed externally
 set autoread
 
-" extra margin
-" set foldcolumn=1
-
 " automatically fold
 set foldmethod=syntax
 set nofoldenable
