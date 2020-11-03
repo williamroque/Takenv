@@ -8,6 +8,7 @@ cp ~/.zshrc files
 cp ~/.terminit.py files
 
 cp -R ~/.config files
+cp -R ~/.vim files
 
 cp ~/iTerm2/com.googlecode.iterm2.plist files
 
