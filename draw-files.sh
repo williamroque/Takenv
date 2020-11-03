@@ -18,6 +18,8 @@ cp ~/.cbackup.sh files
 cp ~/.preview.sh files
 cp ~/.mdstyle.css files
 
+cp ~/.github_markdown.css files
+
 cp ~/.openas.sh files
 
 cp ~/.vimrc.py files
