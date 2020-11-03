@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/jetblack/Documents/Cprojects/Electron/wave/rjs'
 let g:netrw_dirhist_1='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero'
 let g:netrw_dirhist_0='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides/disclaimer'
 let g:netrw_dirhist_9='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos
 let g:netrw_dirhist_5='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/framework'
 let g:netrw_dirhist_4='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero'
 let g:netrw_dirhist_3='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides/title'
-let g:netrw_dirhist_2='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides'

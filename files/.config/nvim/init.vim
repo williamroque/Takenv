@@ -196,6 +196,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " markdown
 Plug 'junegunn/goyo.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -237,8 +238,10 @@ function TgGoyoMD()
     Goyo
 endfunction
 
-autocmd BufNewFile,BufRead *.md call TgGoyoMD()
 nmap <silent> <Leader>md :call TgGoyoMD()<CR>
+
+let g:mkdp_refresh_slow=1
+let g:mkdp_markdown_css=expand('~/.github_markdown.css')
 
 " toggle spellcheck language 
 function ToggleLang()
