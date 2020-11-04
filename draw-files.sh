@@ -8,6 +8,7 @@ cp ~/.zshrc files
 cp ~/.terminit.py files
 
 cp -R ~/.config files
+cp -R ~/.vim files
 
 cp ~/iTerm2/com.googlecode.iterm2.plist files
 
@@ -16,6 +17,8 @@ cp ~/.cbackup.sh files
 
 cp ~/.preview.sh files
 cp ~/.mdstyle.css files
+
+cp ~/.github_markdown.css files
 
 cp ~/.openas.sh files
 
