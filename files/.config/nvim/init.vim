@@ -233,14 +233,9 @@ let g:ale_javascript_eslint_suppress_missing_config = 1
 nmap <Leader>pi :PlugInstall<CR>
 
 " markdown environment
-function TgGoyoMD()
-    set spell
-    Goyo
-endfunction
+autocmd FileType markdown set spell | let b:coc_suggest_disable=1
 
-nmap <silent> <Leader>md :call TgGoyoMD()<CR>
-
-let g:mkdp_refresh_slow=1
+let g:mkdp_refresh_slow=0
 let g:mkdp_markdown_css=expand('~/.github_markdown.css')
 
 " toggle spellcheck language 
@@ -411,3 +406,7 @@ vnoremap <Space> :norm @q<CR>
 
 " file navigation
 nnoremap <Leader>of :Files 
+
+" digraphs
+set digraph
+digraph ra 8594
