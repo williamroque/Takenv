@@ -382,7 +382,7 @@
 			<key>Action</key>
 			<integer>12</integer>
 			<key>Text</key>
-			<string>;clear\n</string>
+			<string>clear\n</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -542,9 +542,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>445 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>312 43 980 674 0 0 1440 875 </string>
+	<string>269 101 980 674 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>165 145 980 674 0 0 1440 875 </string>
+	<string>566 -229 980 674 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>765 -198 1044 718 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1351,7 +1351,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>5AE5EF9A-5D47-4C4F-A51F-6F0D80B22A53</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>245</integer>
+	<integer>256</integer>
 	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -2141,7 +2141,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-27T12:22:04Z</date>
+	<date>2020-11-05T12:07:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>

@@ -27,40 +27,44 @@ set autoread
 set foldmethod=syntax
 set nofoldenable
 
-" status line
-set laststatus=2
-set ttimeoutlen=50
-let g:airline_theme='base16'
-let g:airline_section_y = '%{strftime("%H:%M")}'
-
-let g:airline_powerline_fonts=1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols={}
-endif
-
-" unicode symbols
-let g:airline_left_sep='»'
-let g:airline_left_sep='▶'
-let g:airline_right_sep='«'
-let g:airline_right_sep='◀'
-let g:airline_symbols.linenr='␊'
-let g:airline_symbols.linenr='␤'
-let g:airline_symbols.linenr='¶'
-let g:airline_symbols.branch='⎇'
-let g:airline_symbols.paste='ρ'
-let g:airline_symbols.paste='Þ'
-let g:airline_symbols.paste='∥'
-let g:airline_symbols.whitespace='Ξ'
-
-" airline symbols
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
-let g:airline_symbols.branch=''
-let g:airline_symbols.readonly=''
-let g:airline_symbols.linenr=''
+set laststatus=0
+"" status line
+"set laststatus=2
+"set ttimeoutlen=50
+"let g:airline_theme='base16'
+"let g:airline_section_y = '%{strftime("%H:%M")}'
+"
+"let g:airline_powerline_fonts=1
+"
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols={}
+"endif
+"
+"" highlight current line
+"set cursorline
+"
+"" unicode symbols
+"let g:airline_left_sep='»'
+"let g:airline_left_sep='▶'
+"let g:airline_right_sep='«'
+"let g:airline_right_sep='◀'
+"let g:airline_symbols.linenr='␊'
+"let g:airline_symbols.linenr='␤'
+"let g:airline_symbols.linenr='¶'
+"let g:airline_symbols.branch='⎇'
+"let g:airline_symbols.paste='ρ'
+"let g:airline_symbols.paste='Þ'
+"let g:airline_symbols.paste='∥'
+"let g:airline_symbols.whitespace='Ξ'
+"
+"" airline symbols
+"let g:airline_left_sep=''
+"let g:airline_left_alt_sep=''
+"let g:airline_right_sep=''
+"let g:airline_right_alt_sep=''
+"let g:airline_symbols.branch=''
+"let g:airline_symbols.readonly=''
+"let g:airline_symbols.linenr=''
 
 " buffer is not necessarily written to disk
 set hidden
@@ -168,7 +172,6 @@ nmap ; :
 let &t_SI='\<Esc>]1337;CursorShape=1\x7'
 let &t_EI='\<Esc>]1337;CursorShape=0\x7'
 
-set cursorline " highlight current line
 set splitbelow splitright " how to split new windows
 
 set scrolloff=5 " start scrolling 5 lines before bottom
@@ -191,8 +194,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 " markdown
 Plug 'junegunn/goyo.vim'
