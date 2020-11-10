@@ -27,10 +27,10 @@ set autoread
 set foldmethod=syntax
 set nofoldenable
 
-set laststatus=0
-"" status line
-"set laststatus=2
-"set ttimeoutlen=50
+" status line
+set laststatus=2
+set ttimeoutlen=50
+
 "let g:airline_theme='base16'
 "let g:airline_section_y = '%{strftime("%H:%M")}'
 "
@@ -357,6 +357,10 @@ highlight link CocWarningSign GruvboxYellow
 highlight link CocErrorSign GruvboxRed
 highlight link ALEWarningSign GruvboxYellow
 highlight link ALEErrorSign GruvboxRed
+highlight StatusLine cterm=NONE ctermbg=black ctermfg=NONE
+highlight StatusLineNC cterm=NONE ctermbg=NONE
+highlight IncSearch ctermfg=235 ctermbg=37
+highlight Search ctermfg=237 ctermbg=white
 
 " change windows
 nmap <Leader>w <C-w><C-w>
