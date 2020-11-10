@@ -31,41 +31,6 @@ set nofoldenable
 set laststatus=2
 set ttimeoutlen=50
 
-"let g:airline_theme='base16'
-"let g:airline_section_y = '%{strftime("%H:%M")}'
-"
-"let g:airline_powerline_fonts=1
-"
-"if !exists('g:airline_symbols')
-"    let g:airline_symbols={}
-"endif
-"
-"" highlight current line
-"set cursorline
-"
-"" unicode symbols
-"let g:airline_left_sep='»'
-"let g:airline_left_sep='▶'
-"let g:airline_right_sep='«'
-"let g:airline_right_sep='◀'
-"let g:airline_symbols.linenr='␊'
-"let g:airline_symbols.linenr='␤'
-"let g:airline_symbols.linenr='¶'
-"let g:airline_symbols.branch='⎇'
-"let g:airline_symbols.paste='ρ'
-"let g:airline_symbols.paste='Þ'
-"let g:airline_symbols.paste='∥'
-"let g:airline_symbols.whitespace='Ξ'
-"
-"" airline symbols
-"let g:airline_left_sep=''
-"let g:airline_left_alt_sep=''
-"let g:airline_right_sep=''
-"let g:airline_right_alt_sep=''
-"let g:airline_symbols.branch=''
-"let g:airline_symbols.readonly=''
-"let g:airline_symbols.linenr=''
-
 " buffer is not necessarily written to disk
 set hidden
 
@@ -74,7 +39,6 @@ set wildchar=<TAB>
 set wildmode=list:longest
 
 " search
-set gdefault " RE default global
 set magic " extended RE
 set incsearch " searches incrementally
 set hlsearch " highlight search
@@ -105,24 +69,12 @@ au FileType javascript set fo-=c fo-=r fo-=o
 " disable swap files when editting crontab
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" new tab
-nmap <Leader>te :tabedit 
-
-" close tab
-nmap <Leader>tc :tabclose<CR>
-
-" only keep current tab
-nmap <silent> <Leader>to :tabonly<CR>
-
 " autoesc
 inoremap jk <Esc>
 
 " faster scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-
-" open file
-noremap <silent> <Leader>op :!open %<CR>
 
 " toggle spelling hints
 nnoremap <silent> <Leader>ts :set spell!<CR>
@@ -147,15 +99,11 @@ tnoremap <Esc> <C-\><C-n>
 " close window
 noremap <silent> <leader>qu :silent clo<CR>
 
-" resize splits
-nnoremap <silent> <Leader>sh+ :exe 'resize ' . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>sh- :exe 'resize ' . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>sv+ :exe 'vertical resize ' . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader>sv- :exe 'vertical resize ' . (winwidth(0) * 2/3)<CR>
+" equalize split size
 nnoremap <silent> <Leader>seq <C-w>=
 
 " height of command displayer
-set cmdheight=2
+set cmdheight=1
 
 " remap o and O in order to allow numbers
 nnoremap o o<Esc>i
@@ -165,7 +113,6 @@ nnoremap O O<Esc>i
 nmap zj o<Esc>
 nmap zk O<Esc>
 
-" map ; to :
 nmap ; :
 
 " bar shaped cursor in insert mode
@@ -193,10 +140,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" status line
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-
 " markdown
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -219,7 +162,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'bkad/CamelCaseMotion'
 
 " version control
 Plug 'airblade/vim-gitgutter'
