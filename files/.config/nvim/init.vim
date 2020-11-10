@@ -253,9 +253,9 @@ command! -nargs=0 Format :call CocAction('format')
 
 " something to do with signature
 augroup mygroup
-  autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " autofix
@@ -304,22 +304,12 @@ highlight StatusLineNC cterm=NONE ctermbg=NONE
 highlight IncSearch ctermfg=235 ctermbg=37
 highlight Search ctermfg=237 ctermbg=white
 
-" change windows
-nmap <Leader>w <C-w><C-w>
-
 " emmet
 let g:user_emmet_mode='ni'
 let g:user_emmet_leader_key='§'
 
 " save files quickly
 map <Leader>f :w<CR>
-
-" fzf insert path
-func! s:insert_file_name(lines)
-    let @@ = fnamemodify(a:lines[0], ":p")
-    normal! p
-endfunc
-let g:fzf_action = { 'ctrl-r': function('s:insert_file_name')}
 
 " save and close file
 map <Leader>x :x<CR>
@@ -335,13 +325,6 @@ nmap <S-j> <C-e>
 
 " page up map
 nmap <S-k> <C-y>
-
-" CamelCaseMotion
-nmap <silent> w <Plug>CamelCaseMotion_w
-nmap <silent> b <Plug>CamelCaseMotion_b
-nmap <silent> e <Plug>CamelCaseMotion_e
-nmap <silent> ge <Plug>CamelCaseMotion_ge
-xmap <silent> iw <Plug>CamelCaseMotion_iw
 
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
