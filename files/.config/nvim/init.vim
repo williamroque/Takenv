@@ -103,7 +103,7 @@ noremap <silent> <leader>qu :silent clo<CR>
 nnoremap <silent> <Leader>seq <C-w>=
 
 " height of command displayer
-set cmdheight=1
+set cmdheight=2
 
 " remap o and O in order to allow numbers
 nnoremap o o<Esc>i
@@ -264,6 +264,12 @@ nmap <leader>qf <Plug>(coc-fix-current)
 " codeaction
 nmap <leader>ac  <Plug>(coc-codeaction)
 
+" scroll coc
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
 " function and class objects
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -337,7 +343,7 @@ nnoremap <Space> @q
 vnoremap <Space> :norm @q<CR>
 
 " file navigation
-nnoremap <Leader>of :Files 
+nnoremap <Leader>of :Files<CR>
 
 " digraphs
 set digraph
