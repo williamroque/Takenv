@@ -299,6 +299,7 @@ highlight GitGutterDelete ctermfg=1
 highlight CocWarningSign ctermbg=NONE
 highlight CocErrorSign ctermbg=NONE
 highlight CocFloating ctermbg=0
+highlight Pmenu ctermbg=0
 highlight ALEWarningSign ctermbg=NONE
 highlight ALEErrorSign ctermbg=NONE
 highlight link CocWarningSign GruvboxYellow
@@ -331,6 +332,15 @@ nmap <S-j> <C-e>
 
 " page up map
 nmap <S-k> <C-y>
+
+" page right map
+nmap <S-l> 5zl
+
+" page left map
+nmap <S-h> 5zh
+
+" toggle word wrap
+set wrap!
 
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
