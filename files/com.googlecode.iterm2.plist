@@ -366,6 +366,8 @@
 	<false/>
 	<key>DimOnlyText</key>
 	<true/>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0x19-0x60000</key>
@@ -538,9 +540,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>443 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>129 171 980 674 0 0 1440 875 </string>
+	<string>337 128 841 621 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>77 0 676 875 0 0 1440 875 </string>
+	<string>269 101 980 674 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>357 126 1004 674 0 0 1440 875 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -775,13 +777,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.10031893569976091</real>
+				<real>0.080545849927148083</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.10031893569976091</real>
+				<real>0.080545849927148083</real>
 				<key>Red Component</key>
-				<real>0.10296630859375</real>
+				<real>0.083002090454101562</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -1343,12 +1345,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{517, 863}</string>
+		<string>{270, 868}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>1A6F72D1-9B54-4ECC-8540-691BF75CD77E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>332</integer>
+	<integer>354</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2164,7 +2166,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-11-08T14:50:16Z</date>
+	<date>2020-11-11T23:32:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SoundForEsc</key>
