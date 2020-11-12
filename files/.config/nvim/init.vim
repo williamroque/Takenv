@@ -29,6 +29,13 @@ set nofoldenable
 
 " status line
 set laststatus=2
+set statusline=
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=%y
+set statusline+=\ %l:%c\ 
+
+" I think this updates the status line faster
 set ttimeoutlen=50
 
 " buffer is not necessarily written to disk
