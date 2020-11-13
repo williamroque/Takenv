@@ -189,6 +189,7 @@ autocmd FileType markdown set spell | let b:coc_suggest_disable=1
 
 let g:mkdp_refresh_slow=0
 let g:mkdp_markdown_css=expand('~/.github_markdown.css')
+let g:mkdp_auto_close = 0
 
 " toggle spellcheck language 
 function ToggleLang()
@@ -363,5 +364,7 @@ vnoremap <Space> :norm @q<CR>
 nnoremap <Leader>of :Files<CR>
 
 " digraphs
-set digraph
 digraph ra 8594
+
+" macros
+let @t='/\$[A-Za-z_]*\$:s/\$[A-Za-z_]*\$/'
