@@ -189,7 +189,8 @@ autocmd FileType markdown set spell | let b:coc_suggest_disable=1
 
 let g:mkdp_refresh_slow=0
 let g:mkdp_markdown_css=expand('~/.github_markdown.css')
-let g:mkdp_auto_close = 0
+let g:mkdp_auto_close=0
+let g:mkdp_page_title='${name}'
 
 " toggle spellcheck language 
 function ToggleLang()
@@ -318,6 +319,7 @@ highlight StatusLine cterm=NONE ctermbg=black ctermfg=NONE
 highlight StatusLineNC cterm=NONE ctermbg=NONE
 highlight IncSearch ctermfg=235 ctermbg=37
 highlight Search ctermfg=237 ctermbg=white
+highlight CocRustChainingHint ctermbg=NONE ctermfg=8
 
 " emmet
 let g:user_emmet_mode='ni'
@@ -347,9 +349,6 @@ nmap <S-l> 5zl
 " page left map
 nmap <S-h> 5zh
 
-" toggle word wrap
-set wrap!
-
 " automatically access clipboard on yank and paste
 set clipboard=unnamed
 
@@ -368,3 +367,6 @@ digraph ra 8594
 
 " macros
 let @t='/\$[A-Za-z_]*\$:s/\$[A-Za-z_]*\$/'
+
+" allows mouse integration in normal mode
+set mouse=n
