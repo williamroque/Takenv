@@ -22,7 +22,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 export HOMEBREW_GITHUB_API_TOKEN=27a1744305cfd7a7d58a16c2c7b9a0bbf90b1b22
 
 # custom paths
-export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$PATH:$HOME/cbin
 

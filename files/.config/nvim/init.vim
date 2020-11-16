@@ -14,7 +14,8 @@ syntax on
 set updatetime=300
 
 " change leader
-let mapleader=','
+nnoremap <Space> <Nop>
+let mapleader=' '
 
 " spell checking and encoding
 set spelllang=en_us
@@ -354,10 +355,6 @@ set clipboard=unnamed
 
 " disable error bell
 set noeb vb t_vb=
-
-" macro keymap
-nnoremap <Space> @q
-vnoremap <Space> :norm @q<CR>
 
 " file navigation
 nnoremap <Leader>of :Files<CR>
