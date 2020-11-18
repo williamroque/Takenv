@@ -361,9 +361,14 @@ nnoremap <Leader>of :Files<CR>
 
 " digraphs
 digraph ra 8594
+digraph a\ 224
+digraph e\ 232
 
 " macros
 let @t='/\$[A-Za-z_]*\$:s/\$[A-Za-z_]*\$/'
+
+" convenient macro execution
+nmap <Return> @
 
 " allows mouse integration in normal mode
 set mouse=n
