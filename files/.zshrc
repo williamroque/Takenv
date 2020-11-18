@@ -16,9 +16,6 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 export HOMEBREW_GITHUB_API_TOKEN=27a1744305cfd7a7d58a16c2c7b9a0bbf90b1b22
 
 # custom paths
@@ -52,7 +49,9 @@ function change() {
     git push
 }
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ "$TERM" != 'eterm-color' ]]; then
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
 # Vi mode
 

@@ -9,6 +9,7 @@ cp ~/.terminit.py files
 
 cp -R ~/.config files
 cp -R ~/.vim files
+cp -R ~/.emacs.d files
 
 cp ~/iTerm2/com.googlecode.iterm2.plist files
 
