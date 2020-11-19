@@ -18,7 +18,7 @@
  '(global-undo-tree-mode t)
  '(helm-completion-style 'emacs)
  '(package-selected-packages
-   '(doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 
 ;; set evil mode
@@ -43,6 +43,14 @@
 (helm-mode 1)
 (evil-leader/set-key "SPC" 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
+
+(require 'helm-projectile)
+(setq helm-mini-default-sources '(helm-source-projectile-recentf-list
+                                  helm-source-projectile-buffers-list
+                                  helm-source-projectile-projects
+                                  helm-source-projectile-files-list
+                                  helm-source-buffers-list
+                                  helm-source-recentf))
 
 ;; remove menu and tool bar
 (tool-bar-mode -1)
@@ -77,7 +85,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-(global-set-key [escape] 'evil-exit-emacs-state)
 
 ;; set hybrid line numbers
 (global-set-key [f1] (lambda ()
@@ -224,8 +231,50 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; you're looking at a compulsive saver here
 (setq make-backup-files nil)
 
-;; stop moving backward on exiting insert mode
-(setq evil-move-cursor-back nil)
-
 ;; select recently pasted
 (evil-leader/set-key "V" 'exchange-point-and-mark)
+
+;; convenient way to evaluate buffer
+(evil-leader/set-key "v" 'eval-buffer)
+
+;; configure .curve for json
+(add-to-list 'auto-mode-alist '("\\.curve\\'" . json-mode))
+
+;; set spellcheck program
+(setq ispell-program-name "/usr/local/bin/aspell")
+
+;; convenient enable spellcheck
+(global-set-key (kbd "<f6>") 'flyspell-mode)
+
+;; convenient language changing
+(let ((langs '("american" "francais" "brasileiro")))
+  (setq lang-ring (make-ring (length langs)))
+  (dolist (elem langs) (ring-insert lang-ring elem)))
+
+(defun cycle-ispell-languages ()
+  (interactive)
+  (let ((lang (ring-ref lang-ring -1)))
+    (ring-insert lang-ring lang)
+    (ispell-change-dictionary lang)))
+
+(global-set-key (kbd "C-<f6>") 'cycle-ispell-languages)
+
+;; convenient next split
+(global-set-key (kbd "M-l") 'evil-window-right)
+(global-set-key (kbd "M-h") 'evil-window-left)
+
+;; copy filepath to clipboard
+(defun copy-filepath ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
+
+;; LSP
+(setq lsp-rust-server 'rust-analyzer)

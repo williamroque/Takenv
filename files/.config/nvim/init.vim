@@ -370,5 +370,7 @@ let @t='/\$[A-Za-z_]*\$:s/\$[A-Za-z_]*\$/'
 " convenient macro execution
 nmap <Return> @
 
-" allows mouse integration in normal mode
-set mouse=n
+" disable line numbers in terminal
+autocmd TermOpen * setlocal nornu
+autocmd TermOpen * setlocal nonu
+

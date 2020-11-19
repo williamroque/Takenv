@@ -534,7 +534,7 @@
         "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8",
         "fileHash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1"
       },
-      "expiry": 1605793168115
+      "expiry": 1605884850980
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
@@ -724,7 +724,7 @@
         "displayName": "Python 3.8.6 64-bit",
         "hash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1-ceb5d1f98f3f1f1d605b8f8f5830d850"
       },
-      "expiry": 1605793168224
+      "expiry": 1605884850982
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -955,10 +955,11 @@
           "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8",
           "fileHash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1",
           "type": "Unknown",
-          "displayName": "Python 3.8.6 64-bit"
+          "displayName": "Python 3.8.6 64-bit",
+          "__store": true
         }
       },
-      "expiry": 1605793168271
+      "expiry": 1605884850799
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
