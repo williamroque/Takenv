@@ -11,11 +11,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "8e797edd9fa9afec181efbfeeebf96aeafbd11b69c4c85fa229bb5b9f7f7e66c" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" default))
+   '("17c180fd3e65e1f5b9b7b32e1911829955632db211dd8db502f1559f352e6a18" "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" "939ea070fb0141cd035608b2baabc4bd50d8ecc86af8528df9d41f4d83664c6a" "4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "8e797edd9fa9afec181efbfeeebf96aeafbd11b69c4c85fa229bb5b9f7f7e66c" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" default))
  '(evil-undo-system 'undo-tree)
  '(global-undo-tree-mode t)
+ '(helm-completion-style 'emacs)
  '(package-selected-packages
-   '(evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil)))
+   '(rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil)))
 
 ;; set evil mode
 (require 'evil)
@@ -88,7 +89,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-set-initial-state 'term-mode 'emacs)
 
 ;; set theme
-(load-theme 'gruvbox-dark-hard t)
+(load-theme 'atom-one-dark t)
 
 ;; remove startup screen
 (setq inhibit-startup-screen t)
@@ -200,7 +201,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq evil-normal-state-cursor '("#aaa" box))
 (setq evil-visual-state-cursor '("orange" box))
 (setq evil-insert-state-cursor '("#dacfa6" bar))
-(setq evil-replace-state-cursor '("orange" bar))
+(setq evil-replace-state-cursor '("orange" hollow))
 (setq evil-operator-state-cursor '("orange" hollow))
 
 ;; stop blinking, cursor. seriously.
@@ -212,14 +213,16 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; break text when the time is right
 (add-hook 'text-mode-hook (lambda ()
                             (turn-on-auto-fill)
-                            (fci-mode)
                             (set-fill-column 82)))
 (add-hook 'markdown-mode-hook (lambda ()
                             (turn-on-auto-fill)
-                            (fci-mode)
                             (set-fill-column 82)))
 
-;; friendly reminder to break at 79; you could learn something from 'friendly,' PEP8
-(add-hook 'python-mode-hook (lambda ()
-                              (fci-mode)
-                              (set-fill-column 79)))
+;; you're looking at a compulsive saver here
+(setq make-backup-files nil)
+
+;; stop moving backward on exiting insert mode
+(setq evil-move-cursor-back nil)
+
+;; select recently pasted
+(evil-leader/set-key "V" 'exchange-point-and-mark)

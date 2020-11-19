@@ -1,6 +1,6 @@
 {
   "coc-rust-analyzer|global": {
-    "release": "2020-11-09"
+    "release": "2020-11-16"
   },
   "coc-python|global": {
     "INTERPRETERS_CACHE_v3_CondaEnvFileService": [],
