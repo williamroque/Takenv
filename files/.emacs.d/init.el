@@ -1,21 +1,3 @@
-;; makes modularization easier
-(defconst user-init-dir
-  (cond ((boundp 'user-emacs-directory)
-         user-emacs-directory)
-        ((boundp 'user-init-directory)
-         user-init-directory)
-        (t "~/.emacs.d/")))
-
-(defun load-user-file (file)
-  (interactive "f")
-  "Load a file in current user's configuration directory"
-  (load-file (expand-file-name file user-init-dir)))
-
-(load-user-file "packages.el")
-(load-user-file "evil.el")
-(load-user-file "edit.el")
-(load-user-file "ui.el")
-(load-user-file "misc.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -37,3 +19,22 @@
  '(default ((t (:background "#121112" :foreground "#fdf4c1" :weight medium :height 140 :width normal :family "Victor Mono"))))
  '(line-number ((t (:background "#121112"))))
  '(line-number-current-line ((t (:background "#121112" :foreground "#fe8019")))))
+
+;; makes modularization easier
+(defconst user-init-dir
+  (cond ((boundp 'user-emacs-directory)
+         user-emacs-directory)
+        ((boundp 'user-init-directory)
+         user-init-directory)
+        (t "~/.emacs.d/")))
+
+(defun load-user-file (file)
+  (interactive "f")
+  "Load a file in current user's configuration directory"
+  (load-file (expand-file-name file user-init-dir)))
+
+(load-user-file "packages.el")
+(load-user-file "evil.el")
+(load-user-file "edit.el")
+(load-user-file "ui.el")
+(load-user-file "misc.el")

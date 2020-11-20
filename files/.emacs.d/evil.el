@@ -23,7 +23,7 @@
 (define-key evil-normal-state-map (kbd "zj")
   (lambda () (interactive) (call-interactively 'move-end-of-line) (newline)))
 (define-key evil-normal-state-map (kbd "zk")
-  (lambda () (interactive) (previous-line) (call-interactively 'move-end-of-line) (newline)))
+  (lambda () (interactive) (call-interactively 'move-beginning-of-line) (newline) (previous-line)))
 
 ;; set convenient scrolling
 (define-key evil-normal-state-map (kbd "J")

@@ -34,17 +34,6 @@ scroll-step 1)
 		  (lambda ()
 			(set-window-margins (car (get-buffer-window-list (current-buffer) nil t)) 2 2)))
 
-;; customize theme
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#121112" :foreground "#fdf4c1" :weight medium :height 140 :width normal :family "Victor Mono"))))
- '(line-number ((t (:background "#121112"))))
- '(line-number-current-line ((t (:background "#121112" :foreground "#fe8019")))))
-
-
 ;; use fira code for greek letters
 (set-fontset-font (face-attribute 'default :fontset)
 				  '(#x0370 . #x03FF) (font-spec :family "Fira Code") nil 'append)
@@ -79,3 +68,7 @@ scroll-step 1)
   (dolist (char-regexp alist)
 	(set-char-table-range composition-function-table (car char-regexp)
 						  `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+;; hide frame
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark)) 

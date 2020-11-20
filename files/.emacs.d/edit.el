@@ -21,10 +21,10 @@
 (setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; convenient enable spellcheck
-(global-set-key (kbd "<f6>") 'flyspell-mode)
+(global-set-key (kbd "<f6>") 'flyspell-prog-mode)
 
 ;; convenient language changing
-(let ((langs '("american" "francais" "brasileiro")))
+(let ((langs '("american" "brasileiro")))
   (setq lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert lang-ring elem)))
 
@@ -35,6 +35,9 @@
     (ispell-change-dictionary lang)))
 
 (global-set-key (kbd "C-<f6>") 'cycle-ispell-languages)
+
+;; only spellcheck comments
+(setq flyspell-prog-text-faces '(font-lock-comment-face font-lock-doc-face))
 
 ;; copy filepath to clipboard
 (defun copy-filepath ()
