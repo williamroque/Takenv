@@ -19,6 +19,9 @@
 ;; disable evil for term
 (evil-set-initial-state 'term-mode 'emacs)
 
+;; disable evil for vterm
+(evil-set-initial-state 'vterm-mode 'emacs)
+
 ;; set convenient line-opening
 (define-key evil-normal-state-map (kbd "zj")
   (lambda () (interactive) (call-interactively 'move-end-of-line) (newline)))
@@ -74,7 +77,7 @@
 (evil-leader/set-key "v" 'eval-buffer)
 
 ;; convenient terminal opening
-(evil-leader/set-key "t" 'ansi-term)
+(evil-leader/set-key "t" 'vterm)
 
 ;; disable evil for calendar mode
 (evil-set-initial-state 'calendar-mode 'emacs)
@@ -100,3 +103,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+;; increment/decrement numbers
+(evil-leader/set-key "+" 'evil-numbers/inc-at-pt)
+(evil-leader/set-key "-" 'evil-numbers/dec-at-pt)

@@ -25,9 +25,6 @@ scroll-step 1)
 ;; remove startup screen
 (setq inhibit-startup-screen t)
 
-;; set default window size
-(if (window-system) (set-frame-size (selected-frame) 110 30))
-
 ;; margins
 (fringe-mode 0)
 (add-hook 'window-configuration-change-hook
@@ -35,8 +32,10 @@ scroll-step 1)
 			(set-window-margins (car (get-buffer-window-list (current-buffer) nil t)) 2 2)))
 
 ;; use fira code for greek letters
-(set-fontset-font (face-attribute 'default :fontset)
-				  '(#x0370 . #x03FF) (font-spec :family "Fira Code") nil 'append)
+(defun setup-font ()
+    (set-fontset-font (face-attribute 'default :fontset)
+                      '(#x0370 . #x03FF) (font-spec :family "Fira Code") nil 'append))
+(add-hook 'focus-in-hook #'setup-font)
 
 ;; sort of inelegant way of adding ligature support
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
@@ -71,4 +70,16 @@ scroll-step 1)
 
 ;; hide frame
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark)) 
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
+;; set default frame size
+(if (window-system) (set-frame-size (selected-frame) 110 30))
+
+;; make sure client loading doesn't make Emacs forget this whole configuration thing ever happened
+(add-hook 'before-make-frame-hook
+          #'(lambda ()
+              (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
+              (add-to-list 'default-frame-alist '(left   . 0))
+              (add-to-list 'default-frame-alist '(top    . 0))
+              (add-to-list 'default-frame-alist '(height . 30))
+              (add-to-list 'default-frame-alist '(width  . 110))))

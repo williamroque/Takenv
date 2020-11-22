@@ -12,8 +12,8 @@
                                   helm-source-recentf))
 
 
-;; you're looking at a compulsive saver here
-(setq make-backup-files nil)
+;; put all backups in one place
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; configure .curve for json
 (add-to-list 'auto-mode-alist '("\\.curve\\'" . json-mode))
@@ -34,3 +34,6 @@
 
 ;; convenient way to open lisp eval
 (global-set-key (kbd "C-;") 'eval-expression)
+
+;; convenient way to start markdown preview
+(evil-leader/set-key "m" 'livedown-preview)

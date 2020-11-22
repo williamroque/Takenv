@@ -1,0 +1,4 @@
+/Users/jetblack/.emacs.d/elpa/vterm-20201120.501/build/CMakeFiles/rebuild_cache.dir
+/Users/jetblack/.emacs.d/elpa/vterm-20201120.501/build/CMakeFiles/edit_cache.dir
+/Users/jetblack/.emacs.d/elpa/vterm-20201120.501/build/CMakeFiles/run.dir
+/Users/jetblack/.emacs.d/elpa/vterm-20201120.501/build/CMakeFiles/vterm-module.dir

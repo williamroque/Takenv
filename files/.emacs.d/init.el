@@ -9,7 +9,7 @@
  '(global-undo-tree-mode t)
  '(helm-completion-style 'emacs)
  '(package-selected-packages
-   '(paredit lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(evil-numbers lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
