@@ -16,11 +16,11 @@
 ;; convenient exiting
 (evil-leader/set-key "e" 'kill-this-buffer)
 
-;; disable evil for term
-(evil-set-initial-state 'term-mode 'emacs)
-
 ;; disable evil for vterm
-(evil-set-initial-state 'vterm-mode 'emacs)
+(add-hook 'vterm-mode-hook 'evil-emacs-state)
+
+;; use evil-collection
+(evil-collection-init)
 
 ;; set convenient line-opening
 (define-key evil-normal-state-map (kbd "zj")
@@ -59,8 +59,8 @@
 (setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)))
 
 ;; convenient remap for ex state
-(with-eval-after-load 'evil-maps
-  (define-key evil-motion-state-map (kbd ";") 'evil-ex))
+(define-key evil-normal-state-map (kbd ";") 'evil-ex)
+(define-key evil-normal-state-map (kbd "-") 'evil-repeat-find-char)
 
 ;; change cursor colors based on mode (state)
 (setq evil-emacs-state-cursor '("white" box))
@@ -107,3 +107,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; increment/decrement numbers
 (evil-leader/set-key "+" 'evil-numbers/inc-at-pt)
 (evil-leader/set-key "-" 'evil-numbers/dec-at-pt)
+
+;; move cursor to the right when splitting
+(setq evil-vsplit-window-right t)

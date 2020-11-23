@@ -54,7 +54,6 @@ if [[ "$TERM" != 'eterm-color' ]]; then
 fi
 
 # Vi mode
-
 bindkey -v
 
 bindkey '^P' up-history

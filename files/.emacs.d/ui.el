@@ -89,3 +89,38 @@ scroll-step 1)
 
 ;; raise frame
 (add-hook 'server-switch-hook (lambda () (select-frame-set-input-focus (selected-frame))))
+
+;; better highlighting for python
+(defface method-call-lock
+  '((t :foreground "#b5bd68"))
+  "Face for method calls."
+  :group 'python-mode)
+
+(defface operator-lock
+  '((t :foreground "#cc6666"))
+  "Face for operators."
+  :group 'python-mode)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (font-lock-add-keywords nil
+                                    '(("\\.\\([A-Za-z_]*\\)(.*" 1
+                                       'method-call-lock t)))
+            (font-lock-add-keywords nil
+                                    '(("\\([=+-/*><]\\)" 1
+                                       'operator-lock t)))
+            ))
+
+(set-face-attribute 'font-lock-function-name-face nil
+                    :foreground "#6CA17A")
+(set-face-attribute 'font-lock-keyword-face nil
+                    :weight 'bold
+                    :foreground "#cc6666")
+(set-face-attribute 'font-lock-comment-face nil
+                    :slant 'italic)
+(set-face-attribute 'font-lock-constant-face nil
+                    :foreground "#cc6666")
+(set-face-attribute 'font-lock-variable-name-face nil
+                    :foreground "#E0DBA9")
+(set-face-attribute 'font-lock-type-face nil
+                    :foreground "#6CA17A")

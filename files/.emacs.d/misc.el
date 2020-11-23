@@ -21,9 +21,14 @@
 ;; convenient next split
 (global-set-key (kbd "M-l") 'evil-window-right)
 (global-set-key (kbd "M-h") 'evil-window-left)
+(global-set-key (kbd "M-j") 'evil-window-down)
+(global-set-key (kbd "M-k") 'evil-window-up)
 
-;; LSP
+;; Rust LSP
 (setq lsp-rust-server 'rust-analyzer)
+
+;; Python environment
+(elpy-enable)
 
 ;; set default directory to home
 (setq default-directory (concat (getenv "HOME") "/"))

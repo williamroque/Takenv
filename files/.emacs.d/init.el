@@ -1,3 +1,6 @@
+;; load before evil-leader
+(setq evil-want-keybinding nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -8,8 +11,9 @@
  '(evil-undo-system 'undo-tree)
  '(global-undo-tree-mode t)
  '(helm-completion-style 'emacs)
+ '(helm-minibuffer-history-key "M-p")
  '(package-selected-packages
-   '(typescript-mode ranger lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(elpy lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
