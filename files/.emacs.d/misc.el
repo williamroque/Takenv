@@ -35,5 +35,12 @@
 ;; convenient way to open lisp eval
 (global-set-key (kbd "C-;") 'eval-expression)
 
+;; delete char the fast way
+(define-key key-translation-map (kbd "C-h") [127])
+
 ;; convenient way to start markdown preview
 (evil-leader/set-key "m" 'livedown-preview)
+
+;; use backspace to switch buffers
+(define-key evil-normal-state-map (kbd "<backspace>") 'next-buffer)
+(define-key evil-normal-state-map (kbd "<S-backspace>") 'previous-buffer)

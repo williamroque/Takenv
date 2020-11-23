@@ -78,14 +78,13 @@ scroll-step 1)
 ;; center window
 (set-frame-position (selected-frame)
                     (- (round (/ (display-pixel-width) 2)) (round (/ (frame-outer-width) 2)))
-                    (- (round (/ (display-pixel-height) 2)) (round (/ (frame-outer-height) 2))))
+                    (- (round (/ (display-pixel-height) 2)) (round (/ (frame-outer-height) 2)))))
 
 ;; make sure client loading doesn't make Emacs forget this whole configuration thing ever happened
 (add-hook 'before-make-frame-hook
           #'(lambda ()
               (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
+              (add-to-list 'default-frame-alist '(left   . 0))
+              (add-to-list 'default-frame-alist '(top    . 0))
               (add-to-list 'default-frame-alist '(height . 30))
               (add-to-list 'default-frame-alist '(width  . 110))))
-
-;; raise frame
-(add-hook 'server-switch-hook (lambda () (select-frame-set-input-focus (selected-frame))))
