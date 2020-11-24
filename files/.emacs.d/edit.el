@@ -21,7 +21,7 @@
 (setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; convenient enable spellcheck
-(global-set-key (kbd "<f6>") 'flyspell-prog-mode)
+(evil-leader/set-key "l" 'flyspell-prog-mode)
 
 ;; convenient language changing
 (let ((langs '("american" "brasileiro")))
@@ -34,7 +34,7 @@
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
 
-(global-set-key (kbd "C-<f6>") 'cycle-ispell-languages)
+(evil-leader/set-key "s" 'cycle-ispell-languages)
 
 ;; only spellcheck comments
 (setq flyspell-prog-text-faces '(font-lock-comment-face font-lock-doc-face))

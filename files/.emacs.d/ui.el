@@ -107,8 +107,8 @@ scroll-step 1)
                                     '(("\\.\\([A-Za-z_]*\\)(.*" 1
                                        'method-call-lock t)))
             (font-lock-add-keywords nil
-                                    '(("\\([=+-/*><]\\)" 1
-                                       'operator-lock t)))
+                                    '(("\\([=+-/*><]\\)" .
+                                       'operator-lock)))
             ))
 
 (set-face-attribute 'font-lock-function-name-face nil

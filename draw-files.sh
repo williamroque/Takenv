@@ -20,6 +20,7 @@ cp ~/.preview.sh files
 cp ~/.mdstyle.css files
 
 cp ~/.github_markdown.css files
+cp ~/.org_style.css files
 
 cp ~/.openas.sh files
 

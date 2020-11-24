@@ -83,3 +83,7 @@
 
 ;; toggle truncate lines in org-mode
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
+
+;; send esc to vterm properly
+(add-hook 'vterm-mode-hook
+            (lambda () (local-set-key [escape] #'(vterm-send-key "<escape>"))))
