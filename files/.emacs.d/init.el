@@ -12,8 +12,11 @@
  '(global-undo-tree-mode t)
  '(helm-completion-style 'emacs)
  '(helm-minibuffer-history-key "M-p")
+ '(org-adapt-indentation nil)
+ '(org-export-with-section-numbers nil)
+ '(org-html-postamble nil)
  '(package-selected-packages
-   '(elpy lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(org-download lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

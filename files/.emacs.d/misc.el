@@ -49,3 +49,37 @@
 ;; use backspace to switch buffers
 (define-key evil-normal-state-map (kbd "<backspace>") 'next-buffer)
 (define-key evil-normal-state-map (kbd "<S-backspace>") 'previous-buffer)
+
+;; org mode custom HTML export style
+(defun my-org-inline-css-hook (exporter)
+  "Insert custom inline css"
+  (when (eq exporter 'html)
+    (let* ((dir (ignore-errors (file-name-directory (buffer-file-name))))
+           (path (concat dir "style.css"))
+           (homestyle (or (null dir) (null (file-exists-p path))))
+           (final (if homestyle "~/.org_style.css" path)))
+      (setq org-html-head-include-default-style nil)
+      (setq org-html-head (concat
+                           "<style type=\"text/css\">\n"
+                           "<!--/*--><![CDATA[/*><!--*/\n"
+                           (with-temp-buffer
+                             (insert-file-contents final)
+                             (buffer-string))
+                           "/*]]>*/-->\n"
+                           "</style>\n")))))
+
+(add-hook 'org-export-before-processing-hook 'my-org-inline-css-hook)
+
+;; Replace \vert with pipe for tables with latex
+(require 'ox)
+(defun my-code-filter-replace-pipes (text backend info)
+  (when (org-export-derived-backend-p backend 'html)
+    (replace-regexp-in-string "\\\\vert" "|" text)))
+(add-to-list 'org-export-filter-code-functions 'my-code-filter-replace-pipes)
+
+;; org-download
+(require 'org-download)
+(add-hook 'dired-mode-hook 'org-download-enable)
+
+;; toggle truncate lines in org-mode
+(define-key org-mode-map "\M-q" 'toggle-truncate-lines)
