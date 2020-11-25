@@ -16,13 +16,11 @@
 ;; convenient exiting
 (evil-leader/set-key "e" 'kill-this-buffer)
 
-;; use evil-collection
-(evil-want-keybinding nil)
-(evil-set-initial-state 'term-mode 'emacs)
-(evil-collection-init)
-
 ;; disable evil for vterm
-(evil-set-initial-state 'vterm-mode 'emacs)
+;; (add-hook 'vterm-mode-hook 'evil-emacs-state)
+
+;; use evil-collection
+(evil-collection-init)
 
 ;; set convenient line-opening
 (define-key evil-normal-state-map (kbd "zj")
@@ -31,6 +29,12 @@
   (lambda () (interactive) (call-interactively 'move-beginning-of-line) (newline) (previous-line)))
 
 ;; set convenient scrolling
+(define-key evil-normal-state-map (kbd "C-j")
+  (lambda () (interactive) (scroll-up 3)))
+(define-key evil-normal-state-map (kbd "C-k")
+  (lambda () (interactive) (scroll-down 3)))
+
+;; (muscle memory)
 (define-key evil-normal-state-map (kbd "J")
   (lambda () (interactive) (scroll-up 3)))
 (define-key evil-normal-state-map (kbd "K")
@@ -56,6 +60,9 @@
 	  (insert initial-key))))
 
 (define-key evil-insert-state-map (kbd "j") 'my-jk)
+
+;; unset previous map in vterm mode
+(add-hook vterm-mode-hook '(local-unset-key ("j")))
 
 ;; add digraphs
 (setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)))
@@ -112,3 +119,4 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; move cursor to the right when splitting
 (setq evil-vsplit-window-right t)
+(setq evil-split-window-below t)

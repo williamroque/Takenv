@@ -17,7 +17,7 @@
 (evil-leader/set-key "e" 'kill-this-buffer)
 
 ;; disable evil for vterm
-(add-hook 'vterm-mode-hook 'evil-emacs-state)
+;; (add-hook 'vterm-mode-hook 'evil-emacs-state)
 
 ;; use evil-collection
 (evil-collection-init)
@@ -29,6 +29,12 @@
   (lambda () (interactive) (call-interactively 'move-beginning-of-line) (newline) (previous-line)))
 
 ;; set convenient scrolling
+(define-key evil-normal-state-map (kbd "C-j")
+  (lambda () (interactive) (scroll-up 3)))
+(define-key evil-normal-state-map (kbd "C-k")
+  (lambda () (interactive) (scroll-down 3)))
+
+;; (muscle memory)
 (define-key evil-normal-state-map (kbd "J")
   (lambda () (interactive) (scroll-up 3)))
 (define-key evil-normal-state-map (kbd "K")
@@ -54,6 +60,10 @@
 	  (insert initial-key))))
 
 (define-key evil-insert-state-map (kbd "j") 'my-jk)
+
+;; unset previous map in vterm mode
+(add-hook 'vterm-mode-hook '(lambda ()
+                              (define-key evil-insert-state-map (kbd "j") nil)))
 
 ;; add digraphs
 (setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)))
@@ -110,3 +120,27 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; move cursor to the right when splitting
 (setq evil-vsplit-window-right t)
+(setq evil-split-window-below t)
+
+;; show line numbers when repeating command
+(setq began-line-toggle nil)
+
+(defun cautious-line-toggle ()
+  "Toggle line numbers temporarily if began-line-toggle is nil"
+  (interactive)
+  (if (not began-line-toggle)
+      (progn
+        (toggle-line-numbers)
+        (setq began-line-toggle t))))
+
+(add-hook 'prefix-command-preserve-state-hook 'cautious-line-toggle)
+
+(add-hook 'pre-command-hook '(lambda ()
+                               (interactive)
+                               (if began-line-toggle
+                                 (progn
+                                   (toggle-line-numbers)
+                                   (setq began-line-toggle nil)))))
+
+;; temporarily show line numbers
+(evil-leader/set-key "n" 'cautious-line-toggle)

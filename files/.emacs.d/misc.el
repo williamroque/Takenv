@@ -12,17 +12,24 @@
                                   helm-source-recentf))
 
 
-;; put all backups in one place
+;; put all backups in one place (not sure if this actually works)
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; configure .curve for json
 (add-to-list 'auto-mode-alist '("\\.curve\\'" . json-mode))
 
 ;; convenient next split
-(global-set-key (kbd "M-l") 'evil-window-right)
 (global-set-key (kbd "M-h") 'evil-window-left)
 (global-set-key (kbd "M-j") 'evil-window-down)
 (global-set-key (kbd "M-k") 'evil-window-up)
+(global-set-key (kbd "M-l") 'evil-window-right)
+
+(add-hook 'vterm-mode-hook
+          (lambda ()
+            (define-key vterm-mode-map (kbd "M-h") 'evil-window-left)
+            (define-key vterm-mode-map (kbd "M-j") 'evil-window-down)
+            (define-key vterm-mode-map (kbd "M-k") 'evil-window-up)
+            (define-key vterm-mode-map (kbd "M-l") 'evil-window-right)))
 
 ;; Rust LSP
 (setq lsp-rust-server 'rust-analyzer)
@@ -87,3 +94,9 @@
 ;; send esc to vterm properly
 (add-hook 'vterm-mode-hook
             (lambda () (local-set-key [escape] #'(vterm-send-key "<escape>"))))
+
+;; open clipboard contents as a path
+(defun open-clipboard-path ()
+  "Open the contents of the clipboard as a path"
+  (interactive)
+  (find-file (current-kill 0 t)))

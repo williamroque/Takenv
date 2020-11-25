@@ -124,3 +124,9 @@ scroll-step 1)
                     :foreground "#E0DBA9")
 (set-face-attribute 'font-lock-type-face nil
                     :foreground "#6CA17A")
+
+;; autoselect window with mouse on it
+(setq mouse-autoselect-window t)
+
+;; resize frame naturally (cf. by columns/rows)
+(setq frame-resize-pixelwise t)

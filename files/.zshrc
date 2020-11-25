@@ -49,10 +49,6 @@ function change() {
     git push
 }
 
-function cpath() {
-    grealpath -z $1 | pbcopy
-}
-
 if [[ "$TERM" != 'eterm-color' ]]; then
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi

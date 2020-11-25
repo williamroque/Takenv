@@ -991,3 +991,7 @@ body .task-list-item input {
 table {
     border: none !important;
 }
+
+.MathJax {
+    font-size: 11pt !important;
+}
