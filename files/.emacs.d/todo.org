@@ -1,3 +1,4 @@
 * Todo
 - Convert config into .org
 - Customize modeline
+- Prevent highlighting of methods in comments

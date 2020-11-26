@@ -53,9 +53,54 @@
 ;; convenient way to start markdown preview
 (evil-leader/set-key "m" 'livedown-preview)
 
-;; use backspace to switch buffers
-(define-key evil-normal-state-map (kbd "<backspace>") 'next-buffer)
-(define-key evil-normal-state-map (kbd "<S-backspace>") 'previous-buffer)
+;; for debugging lists
+(defun print-elements-of-list (list)
+  "Print each element of LIST on a line of its own."
+  (while list
+    (print (car list))
+    (setq list (cdr list))))
+
+;; to add after index of list
+(defun insert-after (lst index newelt)
+  (push newelt (cdr (nthcdr index lst))) 
+  lst)
+
+;; create buffer toggle ring
+(setq buffer-toggle-ring '(t))
+(setq buffer-toggle-ring-index 0)
+
+;; remove current buffer from ring
+(defun remove-current-from-buffer-ring ()
+  "Removes current buffer from buffer ring"
+  (if (member (current-buffer) buffer-toggle-ring)
+      (progn
+        (setq buffer-toggle-ring (delete (current-buffer) buffer-toggle-ring))
+        (print-elements-of-list buffer-toggle-ring)
+        (setq buffer-toggle-ring-index (- buffer-toggle-ring-index 1)))))
+
+;; add/remove current buffer from ring
+(defun toggle-buffer-in-buffer-ring ()
+  (interactive)
+  (if (member (current-buffer) buffer-toggle-ring)
+      (remove-current-from-buffer-ring)
+    (progn
+      (insert-after buffer-toggle-ring buffer-toggle-ring-index (current-buffer))
+      (print-elements-of-list buffer-toggle-ring)
+      (setq buffer-toggle-ring-index (+ buffer-toggle-ring-index 1)))))
+
+;; switch to next buffer in ring
+(defun switch-to-next-buffer-in-ring ()
+  (interactive)
+  (if (> (length buffer-toggle-ring) 1)
+      (progn
+        (setq buffer-toggle-ring-index (+ (mod buffer-toggle-ring-index (- (length buffer-toggle-ring) 1)) 1))
+        (switch-to-buffer (nth buffer-toggle-ring-index buffer-toggle-ring)))))
+
+;; remove buffer from ring when buffer is closed
+(add-hook 'kill-buffer-hook 'remove-current-from-buffer-ring)
+
+(define-key evil-normal-state-map (kbd "<S-backspace>") 'toggle-buffer-in-buffer-ring)
+(define-key evil-normal-state-map (kbd "<backspace>") 'switch-to-next-buffer-in-ring)
 
 ;; org mode custom HTML export style
 (defun my-org-inline-css-hook (exporter)
