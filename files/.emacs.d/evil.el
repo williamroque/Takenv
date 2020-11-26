@@ -59,11 +59,12 @@
 	  ;; timeout exceeded
 	  (insert initial-key))))
 
-(define-key evil-insert-state-map (kbd "j") 'my-jk)
+;; I'm not proud of it, I'm changing it if I can, but it works
+(add-hook 'prog-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
+(add-hook 'text-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
 
-;; unset previous map in vterm mode
-(add-hook 'vterm-mode-hook '(lambda ()
-                              (define-key evil-insert-state-map (kbd "j") nil)))
+;; prevent jk in vterm mode
+(add-hook 'vterm-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") nil)))
 
 ;; add digraphs
 (setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)))

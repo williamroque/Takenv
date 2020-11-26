@@ -100,3 +100,6 @@
   "Open the contents of the clipboard as a path"
   (interactive)
   (find-file (current-kill 0 t)))
+
+;; remove bell sound
+(setq ring-bell-function 'ignore)
