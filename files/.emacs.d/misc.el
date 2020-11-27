@@ -148,3 +148,8 @@
 
 ;; remove bell sound
 (setq ring-bell-function 'ignore)
+
+;; load python in org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
