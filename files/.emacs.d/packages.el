@@ -27,3 +27,6 @@
 ;; markdown live preview
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-livedown"))
 (require 'livedown)
+
+;; enable flycheck mode
+(add-hook 'after-init-hook #'global-flycheck-mode)

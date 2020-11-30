@@ -4,3 +4,6 @@
 - Prevent highlighting of methods in comments
 - Look into magit
 - Explore deeper into org-mode
+- Migrate to use-package
+- See about newer than compiled messages
+- Optimize startup time

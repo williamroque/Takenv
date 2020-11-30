@@ -1,7 +1,14 @@
 ;; configure helm
 (helm-mode 1)
+
+;; open the minibuffer with SPC+SPC (leader+SPC)
 (evil-leader/set-key "SPC" 'helm-mini)
+
+;; set M-x to the helm version
 (global-set-key (kbd "M-x") 'helm-M-x)
+
+;; more convenient way to open minibuffer
+(evil-leader/set-key "x" 'helm-M-x)
 
 (require 'helm-projectile)
 (setq helm-mini-default-sources '(helm-source-projectile-recentf-list
