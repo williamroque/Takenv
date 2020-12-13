@@ -30,3 +30,6 @@
 
 ;; enable flycheck mode
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; enable YASnippet
+(yas-global-mode)

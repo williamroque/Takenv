@@ -64,7 +64,7 @@ body h6:hover .anchor .octicon-link:before {
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
   color: #24292e;
-  font-family: 'Victor Mono',-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: 'Times New Roman';
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -724,6 +724,8 @@ body ul ul {
 
 body li {
   word-wrap: break-all;
+  text-align: justify;
+  hyphens: auto;
 }
 
 body li>p {
@@ -993,5 +995,5 @@ table {
 }
 
 .MathJax {
-    font-size: 11pt !important;
+    /* I really don't know what to do here */
 }

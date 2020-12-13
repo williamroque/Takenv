@@ -14,9 +14,12 @@
  '(helm-minibuffer-history-key "M-p")
  '(org-adapt-indentation nil)
  '(org-export-with-section-numbers nil)
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 1.0 :html-foreground "Black" :html-background "Transparent" :html-scale 0.4 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-html-postamble nil)
  '(package-selected-packages
-   '(lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(racer lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -36,7 +39,9 @@
  '(line-number ((t (:background "#121112"))))
  '(line-number-current-line ((t (:background "#121112" :foreground "#fe8019"))))
  '(markdown-code-face ((t (:background "#121112"))))
- '(markdown-pre-face ((t nil))))
+ '(markdown-pre-face ((t nil)))
+ '(org-block ((t (:background "#121112"))))
+ '(org-level-3 ((t (:inherit outline-3 :foreground "#799")))))
 
 ;; makes modularization easier
 (defconst user-init-dir

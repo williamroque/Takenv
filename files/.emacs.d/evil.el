@@ -15,6 +15,7 @@
 
 ;; convenient exiting
 (evil-leader/set-key "e" 'kill-this-buffer)
+(evil-leader/set-key "x" '(lambda () (interactive) (save-buffer) (kill-this-buffer)))
 
 ;; disable evil for vterm
 ;; (add-hook 'vterm-mode-hook 'evil-emacs-state)

@@ -12,16 +12,16 @@
 ;; break text when the time is right
 (add-hook 'text-mode-hook (lambda ()
                             (turn-on-auto-fill)
-                            (set-fill-column 82)))
+                            (set-fill-column 78)))
 (add-hook 'markdown-mode-hook (lambda ()
                             (turn-on-auto-fill)
-                            (set-fill-column 82)))
+                            (set-fill-column 78)))
 
 ;; set spellcheck program
 (setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; convenient enable spellcheck
-(evil-leader/set-key "l" 'flyspell-prog-mode)
+(evil-leader/set-key "s" 'flyspell-prog-mode)
 
 ;; convenient language changing
 (let ((langs '("american" "brasileiro")))
@@ -34,7 +34,7 @@
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
 
-(evil-leader/set-key "s" 'cycle-ispell-languages)
+(evil-leader/set-key "c" 'cycle-ispell-languages)
 
 ;; only spellcheck comments
 (setq flyspell-prog-text-faces '(font-lock-comment-face font-lock-doc-face))
@@ -60,3 +60,6 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+;; enable auto-pairing delimiters for prog-mode
+(add-hook 'prog-mode-hook 'electric-pair-mode)

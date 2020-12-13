@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eval-derivative
+# key: devalat
+# --
+\frac{d${1:y}}{d${2:x}} \biggr\rvert_{$3}$0

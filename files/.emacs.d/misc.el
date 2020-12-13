@@ -8,7 +8,7 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; more convenient way to open minibuffer
-(evil-leader/set-key "x" 'helm-M-x)
+(evil-leader/set-key ";" 'helm-M-x)
 
 (require 'helm-projectile)
 (setq helm-mini-default-sources '(helm-source-projectile-recentf-list
@@ -40,6 +40,21 @@
 
 ;; Rust LSP
 (setq lsp-rust-server 'rust-analyzer)
+
+;; enable racer mode in rust mode
+(add-hook 'rust-mode-hook #'racer-mode)
+
+;; enable company mode in racer
+(add-hook 'rust-mode-hook #'company-mode)
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+(setq racer-rust-src-path
+      (concat (string-trim
+               (shell-command-to-string "rustc --print sysroot"))
+              "/lib/rustlib/src/rust/library"))
 
 ;; Python environment
 (elpy-enable)
@@ -111,7 +126,7 @@
 
 ;; org mode custom HTML export style
 (defun my-org-inline-css-hook (exporter)
-  "Insert custom inline css"
+  "Insert custom inline css."
   (when (eq exporter 'html)
     (let* ((dir (ignore-errors (file-name-directory (buffer-file-name))))
            (path (concat dir "style.css"))
@@ -142,6 +157,7 @@
 
 ;; toggle truncate lines in org-mode
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
+(toggle-truncate-lines)
 
 ;; send esc to vterm properly
 (add-hook 'vterm-mode-hook
@@ -149,7 +165,7 @@
 
 ;; open clipboard contents as a path
 (defun open-clipboard-path ()
-  "Open the contents of the clipboard as a path"
+  "Open the contents of the clipboard as a path."
   (interactive)
   (find-file (current-kill 0 t)))
 
@@ -160,3 +176,64 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)))
+
+;; change MathJax formatting
+(setf org-html-mathjax-options
+      '((path "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+        (scale "90") 
+        (align "center") 
+        (indent "2em")
+        (mathml nil)))
+
+;; make sure latex snippets work in org-mode
+(defun my-org-latex-yas ()
+  "Activate \"org-mode\" and LaTeX yas expansion in org-mode buffers."
+  (yas-minor-mode)
+  (yas-activate-extra-mode 'latex-mode))
+
+(add-hook 'org-mode-hook #'my-org-latex-yas)
+
+;; convenient way to toggle latex preview in org-mode
+(evil-leader/set-key "l" 'org-latex-preview)
+
+;; convenient way to export to HTML in org-mode
+(defun export-and-open-html ()
+  "Export \"org-mode\" file to HTML and open all HTML files in the directory."
+  (interactive)
+  (org-html-export-to-html)
+  (shell-command "open *.html"))
+(evil-leader/set-key "h" 'export-and-open-html)
+
+(setq org-export-with-toc nil)
+
+;; change template placeholder
+(defvar my-placeholder-text "<++>"
+  "Placeholder text to be replaced by `my-clear-next-placeholder'")
+
+(defun my-clear-next-placeholder (arg)
+  "Jump forward to next occurrence of `my-placeholder-text' and remove."
+  (interactive "i") ; ignore argument
+  (if (search-forward my-placeholder-text nil t) ; ignore error
+      (progn
+        (delete-backward-char (length my-placeholder-text))
+        (evil-insert-state))))
+
+(evil-leader/set-key "r" 'my-clear-next-placeholder)
+
+;; insert template placeholder
+(evil-leader/set-key "R" '(lambda ()
+                            (interactive)
+                            (ignore-errors (forward-char))
+                            (insert my-placeholder-text)))
+
+;; create scratch buffer
+(evil-leader/set-key "b" '(lambda () (interactive) (switch-to-buffer "*scratch*")))
+
+;; convenient options
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; stop creating lockfiles
+(setq create-lockfiles nil)
+
+(provide 'misc)
+;;; misc.el ends here

@@ -79,7 +79,7 @@
         "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8",
         "fileHash": "b8502ac88f80d8e8651e628f8271d6cdf18e0fafcbbbeb4254b3691ba90ebfd07fc6f5f2907c0285845dfbb84c6c9448b94a068d680b3034627dffd449077477"
       },
-      "expiry": 1606393442131
+      "expiry": 1607124902864
     },
     "/usr/local/bin/python3.8.v3": {
       "data": {
@@ -129,7 +129,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "fe779c276a2cbfead74d365db0ac2cbfcea62106a4f0a4f6c9ded35d45b630e271af9461b8083f72f5c25478015c8409ecfa63d05b8eac8c5d1442777dd260d2"
       },
-      "expiry": 1606393442318
+      "expiry": 1607124902898
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -154,7 +154,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "fe779c276a2cbfead74d365db0ac2cbfcea62106a4f0a4f6c9ded35d45b630e271af9461b8083f72f5c25478015c8409ecfa63d05b8eac8c5d1442777dd260d2"
       },
-      "expiry": 1606393442339
+      "expiry": 1607124902889
     },
     "/Library/Developer/CommandLineTools/usr/bin/python3.v3": {
       "data": {
@@ -179,7 +179,7 @@
         "sysPrefix": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8",
         "fileHash": "ae062754ec10f7f014122126cd97503bc355e2a5c4e734035e0796230f2f60588864634513439ae5ab57935aa8e7ee9745d9e9a59415a824c1efc0638c08ec90"
       },
-      "expiry": 1606393442311
+      "expiry": 1607124902887
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -204,7 +204,7 @@
         "sysPrefix": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8",
         "fileHash": "fe779c276a2cbfead74d365db0ac2cbfcea62106a4f0a4f6c9ded35d45b630e271af9461b8083f72f5c25478015c8409ecfa63d05b8eac8c5d1442777dd260d2"
       },
-      "expiry": 1606393442152
+      "expiry": 1607124902868
     },
     "/usr/local/Cellar/python@2/2.7.15_2/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.v3": {
       "data": {
@@ -254,7 +254,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "fe779c276a2cbfead74d365db0ac2cbfcea62106a4f0a4f6c9ded35d45b630e271af9461b8083f72f5c25478015c8409ecfa63d05b8eac8c5d1442777dd260d2"
       },
-      "expiry": 1606393442346
+      "expiry": 1607124902878
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -534,7 +534,7 @@
         "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8",
         "fileHash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1"
       },
-      "expiry": 1606393442356
+      "expiry": 1607124902896
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
@@ -725,7 +725,7 @@
         "displayName": "Python 3.8.6 64-bit",
         "hash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1-ceb5d1f98f3f1f1d605b8f8f5830d850"
       },
-      "expiry": 1606393442322
+      "expiry": 1607124902904
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -962,7 +962,7 @@
           "__store": true
         }
       },
-      "expiry": 1606393442120
+      "expiry": 1607124902819
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
@@ -986,6 +986,7 @@
       "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8",
       "fileHash": "2a7817caeee4e4d5278562a5396f2830c2e07af1020c2766227617f60e442295c74319bc8b650239bec07393adee1f4a1f3c010fc71d4fd5498790dc23997bc1",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.8.6 64-bit"
     },
     "ProposeLSBanner": false,
@@ -1012,7 +1013,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "fe779c276a2cbfead74d365db0ac2cbfcea62106a4f0a4f6c9ded35d45b630e271af9461b8083f72f5c25478015c8409ecfa63d05b8eac8c5d1442777dd260d2"
       },
-      "expiry": 1606393442395
+      "expiry": 1607124902938
     },
     "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.interpreter.displayName.v7": {
       "data": {
@@ -1142,6 +1143,10 @@
     "INTERPRETERS_CACHE_v3_PipEnvService": []
   },
   "coc-python|/Users/jetblack-work": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/jetblack": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
     "INTERPRETERS_CACHE_v3_PipEnvService": []
   }
