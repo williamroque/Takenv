@@ -2,4 +2,4 @@
 # name: limit
 # key: lim
 # --
-\lim_{${1:x} \rightarrow ${2:a}}$0
+\lim_{${1:x} \to ${2:a}}$0

@@ -235,5 +235,13 @@
 ;; stop creating lockfiles
 (setq create-lockfiles nil)
 
+;; to run python files
+(defun run-current-python ()
+  "Run current Python file."
+  (interactive)
+  (shell-command (format "python %s" (buffer-file-name))))
+
+(evil-leader/set-key "," 'run-current-python)
+
 (provide 'misc)
 ;;; misc.el ends here

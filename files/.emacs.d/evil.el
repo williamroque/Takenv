@@ -68,7 +68,9 @@
 (add-hook 'vterm-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") nil)))
 
 ;; add digraphs
-(setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)))
+(setq evil-digraphs-table-user '(((?r ?a) . ?\x2192)
+                                 ((?a ?m) . ?\x0026)
+                                 ((?s ?l) . ?\x005c)))
 
 ;; convenient remap for ex state
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)

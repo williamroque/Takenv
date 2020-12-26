@@ -11,6 +11,8 @@
 		<Language id="default">
 			<Font font="0;13;70;90;90;0;.AppleSystemUIFont;49" width="779" height="15" />
 			<Dialog name="Update" width="604" />
+			<Dialog name="Netconf" width="564" />
+			<Dialog name="Settings" width="563" />
 		</Language>
 	</Layout>
 </FileZilla3>

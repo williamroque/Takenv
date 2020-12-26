@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: derivative
+# key: derv
+# --
+\frac{d${1:y}}{d${2:x}} $0

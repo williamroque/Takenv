@@ -12,7 +12,7 @@
 		<Setting name="Last resolved IP" />
 		<Setting name="No external ip on local conn">1</Setting>
 		<Setting name="Pasv reply fallback mode">0</Setting>
-		<Setting name="Timeout">20</Setting>
+		<Setting name="Timeout">0</Setting>
 		<Setting name="Logging Debug Level">0</Setting>
 		<Setting name="Logging Raw Listing">0</Setting>
 		<Setting name="fzsftp executable" />
@@ -60,10 +60,83 @@
 		<Setting name="Concurrent upload limit">0</Setting>
 		<Setting name="Update Check">1</Setting>
 		<Setting name="Update Check Interval">7</Setting>
-		<Setting name="Last automatic update check">2020-03-30 16:19:11</Setting>
+		<Setting name="Last automatic update check">2020-12-23 17:29:41</Setting>
 		<Setting name="Last automatic update version">3.46.3</Setting>
-		<Setting name="Update Check New Version">nightly 2020-03-30 https://filezilla-project.org/nightlies/2020-03-30/x86_64-apple-darwin18.2.0/FileZilla3.app.tar.bz2 10781356 sha512 7c3b8d9c59d7e952f8adb0363669474358dd40738a4f5ee1f5aa1db1ba49de87062e8d924d274538d790ac955d0f57b234d4e7e80995e670151acd2830bd43db sig:GBQps2a0P5fjj5gZzIvD2orHBs8Hsi+SE0zZqnIWV/fkSBG7Zi6pKCcRj97a6aDqKellgGo0YWap9C2bo1/6CA
-release 3.47.2.1 https://dl3.cdn.filezilla-project.org/FileZilla_3.47.2.1_macosx-x86.app.tar.bz2 10644725 sha512 8aff3f2764e7bdf1a4667757b9fcf27059f21277d055e2452ba8d31a922fdf8ce845d63ad53110fd3b37ca074e0ee8471f2650827595d3ad3998edb79876c28d sig:rdI9ceOxQevOta8FK9EnCLT5AkSTe2/HjL9gfSS9OXStOijJczqJfahaeH1x7MRJ/kiKMBH5ZDMpIDdu9WS9Bw
+		<Setting name="Update Check New Version">nightly 2020-12-22 https://filezilla-project.org/nightlies/2020-12-22/x86_64-apple-darwin18.2.0/FileZilla3.app.tar.bz2 17103109 sha512 49aa021e444859af00b1e6b36dfa8fd6579d9caa80165665e2fa041a5b1439232b8077bc44b34d21f57ffe44da1a015c534a1d97c06bca8e184c57f89508f9ed sig:La8l5z4Lct7shpK0ncF7StV90zS7L6dMOz7OtXMQ/gYmEZgzC9wFy2fromyNsRHaEQsrw6mmDsf74Rig/7noCA
+release 3.51.0 https://dl2.cdn.filezilla-project.org/FileZilla_3.51.0_macosx-x86.app.tar.bz2 16175443 sha512 82d16bf43828391fc0b63e41bd508ef320aa702ca10be1415eb1aeb7e5af9f084d4ba6d39c230f79c8cbb026153c25dcbc8f24b0cfe8f4a1c9246bf0f933a373 sig:9oadasBpmFpO35YP/KmCzR6BXcDK3Et4Wzyt1dSPYeOmRGWCaAACy8FoLWv/TVzM5pbxIy3vdgCxpqMrX5mNDA
+beta 3.52.0-beta1 https://dl2.cdn.filezilla-project.org/FileZilla_3.52.0-beta1_macosx-x86.app.tar.bz2 16604604 sha512 e381adef0f25fcb632e5a87ac656afa8af643388dbb66611d9174674afe8ccff028b6dc4eef4215d2428c6869a51e2c8e1a2878dbd663f71b770f3e1433a8463 sig:G4sLpQK//G0YCyKj1q/zOao9VdIkWEt4ZetfvAkh7J17sUeMeXXh3sv2pQnk3Zkqv5+vDXK7HcgYFLlR3wgmBw
+
+3.52.0-beta1 (2020-12-17)
+
++ Use asynchronous file readers/writers in the engine
+- MSW: React to system color scheme changes
+- Fixed splitters not being draggable on newly created tabs
+- MSW: Fixed data directory lookup if run from a development environment
+
+3.51.0 (2020-10-20)
+
+- Fixed import of sites protected with a different master password
+- Directory comparison now works correctly with non-default file name sorting settings
+- Small search dialog fixes
+
+3.51.0-rc1 (2020-10-13)
+
+- Refactored how the queue stores transfer flags
+- Refactored internals to be more modular
+- Linux: Disable receive buffer tuning if it results in unexpected consequences
+- Distinguish between Cancel and No in the file changed dialog
+- Small fixes to changing or disabling a master password
+
+3.50.0 (2020-08-27)
+
+- Minor fixes to Tardigrade integration
+
+3.50.0-rc1 (2020-08-21)
+
++ Update Storj/Tardigrade integration, now based on the uplink-c library
+- Fix layout issues in the Site Manager if switching protocol
+- Restored natural sort option for file list sorting
+
+3.49.1 (2020-07-15)
+
+- Fixed selection changes not being reflected in the Site Manager in some circumstances
+
+3.49.0 (2020-07-14)
+
+- Fixed retrying initial connection attempts
+
+3.49.0-rc1 (2020-07-07)
+
+- MSW: Tab bar icons now scale on high-DPI displays
+- The sizing and spacing of several dialogs has been improved on high-DPI displays
+- MSW: Fix visual glitches when changing the selected site in the Site Manager
+- When creating a new tab, the pane sizes are now inherited from the previous tab.
+- macOS: Additional fixes for handling Cmd+V, Cmd+C and Cmd+X in text input controls
+- Refactored internal settings and option handling
+
+3.48.1 (2020-05-19)
+
+- If FileZilla is configured to restore open tabs on startup, the directory trees no longer shrink in size
+
+3.48.1-rc1 (2020-05-12)
+
+! MSW: The settings directory is now initially created with tight permissions restricted to the user's account. Previously the directory could have had inherited too wide permissions if a custom location outside the user's profile directory had been preconfigured.
++ Redesigned certificate dialog
++ During directory comparison and comparative search, Ctrl+Shift+A can now be used to select only the highlighted files
+- Fixed import of settings
+- Fixed local file editing if the option to track local file changes had been disabled
+- Fixes to storing associations
+
+3.48.0 (2020-04-28)
+
+! Custom associations for file extensions containing spaces were not saved correctly
+
+3.48.0-rc1 (2020-04-20)
+
++ Overhaul of file associations for editing files. The setting to inherit system associations has been removed. When first editing a type of file with no default editor set, a dialog is shown asking which editor to use. The system associatio, if it exists, is a choice in this dialog.
+- SFTP: Re-added support for AES-GCM which was accidentally removed in 3.46.1
+- Fixes for comparative search leaving the program in an inconsistent state when closing the dialog during an ongoing search
+- Building and running FileZilla now depends on libfilezilla &gt;= 0.20.0 (https://lib.filezilla-project.org/)
 
 3.47.2.1 (2020-03-11)
 
@@ -110,15 +183,15 @@ release 3.47.2.1 https://dl3.cdn.filezilla-project.org/FileZilla_3.47.2.1_macosx
 		<Setting name="Queue column widths">180 60 180 80 60 150</Setting>
 		<Setting name="Local filelist colwidths">170 80 120 120</Setting>
 		<Setting name="Remote filelist colwidths">150 75 80 100 80 85</Setting>
-		<Setting name="Window position and size">0 101 23 1211 691 </Setting>
+		<Setting name="Window position and size">0 90 37 1211 691 </Setting>
 		<Setting name="Splitter positions (v2)">97 -132 500000000 204 204 500000000</Setting>
 		<Setting name="Local filelist sortorder">0 0</Setting>
 		<Setting name="Remote filelist sortorder">0 0</Setting>
-		<Setting name="Time Format" />
-		<Setting name="Date Format" />
+		<Setting name="Time Format">0</Setting>
+		<Setting name="Date Format">0</Setting>
 		<Setting name="Show message log">1</Setting>
 		<Setting name="Show queue">1</Setting>
-		<Setting name="Default editor" />
+		<Setting name="Default editor">0</Setting>
 		<Setting name="Always use default editor">0</Setting>
 		<Setting name="Inherit system associations">1</Setting>
 		<Setting name="Custom file associations" />
@@ -151,7 +224,7 @@ release 3.47.2.1 https://dl3.cdn.filezilla-project.org/FileZilla_3.47.2.1_macosx
 		<Setting name="Filteredit window size" />
 		<Setting name="Enable invalid char filter">1</Setting>
 		<Setting name="Invalid char replace">_</Setting>
-		<Setting name="Already connected choice">0</Setting>
+		<Setting name="Already connected choice">1</Setting>
 		<Setting name="Edit status dialog size" />
 		<Setting name="Display current speed">0</Setting>
 		<Setting name="Toolbar hidden">0</Setting>
@@ -176,7 +249,7 @@ release 3.47.2.1 https://dl3.cdn.filezilla-project.org/FileZilla_3.47.2.1_macosx
 					<Protocol>0</Protocol>
 					<Type>0</Type>
 					<User>ethosgroup</User>
-					<Pass encoding="crypt" pubkey="JV05FKrSl3jNSYLRNlBFRBOkS/oYUf8R2LIyuNaMgGIVW1noVuyZtFVxIcMzW+ZSdetyNVPGDJFImlwX97eZvQ==">jeIvqDXeP+mpgbqAtxEDPnGueDPaw6LJaoPaGyx4JRZEMsekQv43TRDRkhHT/A8Fi89mDVSuywnGUSB4+PrLpnQFwkJW4iQo7nolZ5fm+d4zYgjAblsxn5y777K+51Fg</Pass>
+					<Pass encoding="crypt" pubkey="JV05FKrSl3jNSYLRNlBFRBOkS/oYUf8R2LIyuNaMgGIVW1noVuyZtFVxIcMzW+ZSdetyNVPGDJFImlwX97eZvQ==">29ZwxcDo89Snpd6TYW6FCRuOVEXVOjgyyXEghilqt0PgNdOAYOsYbbA98dT6utUQm2wu9csix1qDllP/pZ4N11m6jeN7OVQPfOEqSm7nhWu57bbPMkd32xv/9lQFjS6j</Pass>
 					<Logontype>1</Logontype>
 					<TimezoneOffset>0</TimezoneOffset>
 					<PasvMode>MODE_DEFAULT</PasvMode>
@@ -184,7 +257,7 @@ release 3.47.2.1 https://dl3.cdn.filezilla-project.org/FileZilla_3.47.2.1_macosx
 					<EncodingType>Auto</EncodingType>
 					<BypassProxy>0</BypassProxy>
 					<Site></Site>
-					<RemotePath>1 0 3 www 3 dfs</RemotePath>
+					<RemotePath>1 0 3 www 4 emis</RemotePath>
 					<LocalPath>/Users/jetblack/</LocalPath>
 				</Tab>
 			</Tabs>

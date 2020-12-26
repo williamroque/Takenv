@@ -363,6 +363,7 @@ nnoremap <Leader>of :Files<CR>
 digraph ra 8594
 digraph a\ 224
 digraph e\ 232
+digraph am 38
 
 " macros
 let @t='/\$[A-Za-z_]*\$:s/\$[A-Za-z_]*\$/'
