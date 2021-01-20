@@ -19,7 +19,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-html-postamble nil)
  '(package-selected-packages
-   '(racer lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
+   '(lsp-mode json-mode doom-themes rust-mode evil-surround smooth-scrolling helm-ag helm-projectile helm evil-leader undo-tree gruvbox-theme evil))
  '(pdf-view-midnight-colors '("#fdf4c1" . "#1d2021")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -41,6 +41,7 @@
  '(markdown-code-face ((t (:background "#121112"))))
  '(markdown-pre-face ((t nil)))
  '(org-block ((t (:background "#121112"))))
+ '(org-level-2 ((t (:box (:line-width 1 :color "unemphasizedSelectedContentBackgroundColor") :weight thin))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#799")))))
 
 ;; makes modularization easier

@@ -239,7 +239,7 @@
 (defun run-current-python ()
   "Run current Python file."
   (interactive)
-  (shell-command (format "python %s" (buffer-file-name))))
+  (shell-command (format "export PYTHONPATH='${PYTHONPATH}:/Users/jetblack/mframe/src/' && python %s" (buffer-file-name))))
 
 (evil-leader/set-key "," 'run-current-python)
 

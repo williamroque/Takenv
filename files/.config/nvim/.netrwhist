@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/jetblack/Library/Jupyter/kernels/python3'
 let g:netrw_dirhist_6='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides'
 let g:netrw_dirhist_5='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package'
 let g:netrw_dirhist_4='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides/dados-operacao'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_1='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos
 let g:netrw_dirhist_0='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation/slides/disclaimer'
 let g:netrw_dirhist_9='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/presentation'
 let g:netrw_dirhist_8='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero'
-let g:netrw_dirhist_7='/Users/jetblack-work/Documents/PPT/profero/src/pagamentos_garantias_package/profero/framework'

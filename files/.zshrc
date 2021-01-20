@@ -23,6 +23,7 @@ export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$PATH:$HOME/cbin
 
 export PYTHONPATH="${PYTHONPATH}:/Users/jetblack/mframe/src/"
+export PATH="$PATH:/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/bin"
 
 # custom aliases
 alias openas='sh ~/.openas.sh'
@@ -44,11 +45,16 @@ alias dispov="osascript ~/cbin/dispov.scpt"
 alias gest="python ~/gestures.py"
 alias sec="python ~/secure.py"
 alias imgtxt="python ~/imgtxt.py"
+alias emc="/usr/local/bin/emacsclient -c -F '((left . 317) (top . 146))' -e '(select-frame-set-input-focus (selected-frame))'"
 
 function change() {
     git add .
     git commit -m $1
     git push
+}
+
+function download_images() {
+    wget -i `wget -qO- $1 | sed -n '/<img/s/.*src="\([^"]*\)".*/\1/p'`
 }
 
 if [[ "$TERM" != 'eterm-color' ]]; then
@@ -94,3 +100,6 @@ export LANG=en_US.UTF-8
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
+
+# prevent command history from registering with space
+setopt histignorespace

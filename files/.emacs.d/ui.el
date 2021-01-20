@@ -128,5 +128,11 @@ scroll-step 1)
 ;; autoselect window with mouse on it
 (setq mouse-autoselect-window t)
 
+;; display time
+(display-time-mode 1)
+
 ;; resize frame naturally (cf. by columns/rows)
 (setq frame-resize-pixelwise t)
+
+;; hide markdown for org-mode
+(setq org-hide-emphasis-markers t)

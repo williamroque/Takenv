@@ -6,4 +6,3 @@
 - Explore deeper into org-mode
 - Migrate to use-package
 - See about newer than compiled messages
-- Optimize startup time
