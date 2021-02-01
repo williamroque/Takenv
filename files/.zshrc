@@ -46,6 +46,7 @@ alias gest="python ~/gestures.py"
 alias sec="python ~/secure.py"
 alias imgtxt="python ~/imgtxt.py"
 alias emc="/usr/local/bin/emacsclient -c -F '((left . 317) (top . 146))' -e '(select-frame-set-input-focus (selected-frame))'"
+alias mframe="python -c 'import os; os.system(\"/Users/jetblack/mframe/GUI/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron /Users/jetblack/mframe/GUI/\")'"
 
 function change() {
     git add .
@@ -54,7 +55,11 @@ function change() {
 }
 
 function download_images() {
-    wget -i `wget -qO- $1 | sed -n '/<img/s/.*src="\([^"]*\)".*/\1/p'`
+    wget -i `wget -qO- -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" $1 | sed -n '/<img/s/.*src="\([^"]*\)".*/\1/p'`
+}
+
+function subenc() {
+    echo "${$(cat $1 | openssl aes-256-cbc -a -d -salt)/SUB/$2}"
 }
 
 if [[ "$TERM" != 'eterm-color' ]]; then
@@ -91,6 +96,7 @@ bindkey '^[[B' down-line-or-search
 
 export PATH="$PATH:/usr/local/bin"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/Applications/Julia-1.5.app/Contents/Resources/julia/bin/:${PATH}"
 
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8

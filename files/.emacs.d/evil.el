@@ -42,7 +42,7 @@
   (lambda () (interactive) (scroll-down 3)))
 
 ;; convenient macro execution
-(define-key evil-normal-state-map (kbd "RET") 'evil-execute-macro)
+;; (define-key evil-normal-state-map (kbd "RET") 'evil-execute-macro)
 
 ;; quick exit insert mode
 (defun my-jk ()
@@ -73,8 +73,11 @@
                                  ((?s ?l) . ?\x005c)))
 
 ;; convenient remap for ex state
-(define-key evil-normal-state-map (kbd ";") 'evil-ex)
-(define-key evil-normal-state-map (kbd "-") 'evil-repeat-find-char)
+(evil-define-key 'normal 'global (kbd ";") 'evil-ex)
+(evil-define-key 'normal 'dired-mode-map (kbd ";") 'evil-ex)
+
+;; repeat find char remap
+(evil-define-key 'normal 'global (kbd "-") 'evil-repeat-find-char)
 
 ;; change cursor colors based on mode (state)
 (setq evil-emacs-state-cursor '("white" box))

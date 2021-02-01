@@ -239,9 +239,31 @@
 (defun run-current-python ()
   "Run current Python file."
   (interactive)
-  (shell-command (format "export PYTHONPATH='${PYTHONPATH}:/Users/jetblack/mframe/src/' && python %s" (buffer-file-name))))
+  (shell-command (format "export PYTHONPATH='${PYTHONPATH}:/Users/jetblack/mframe/src/' && python '%s'" (buffer-file-name))))
 
 (evil-leader/set-key "," 'run-current-python)
+
+;; delete a file by moving it to trash
+(setq delete-by-moving-to-trash t)
+(setq trash-directory "~/.Trash")
+
+;; delete current file
+(evil-leader/set-key "d" (lambda ()
+                           (interactive)
+                           (delete-file (buffer-file-name))))
+
+;; close current buffer and open dired at cwd
+(evil-leader/set-key "i" (lambda ()
+                           (interactive)
+                           (kill-buffer (current-buffer))
+                           (dired-at-point ".")))
+
+;; create org-mode links across files
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+;; use RET to follow links
+(add-to-list 'org-link-frame-setup '(file . find-file))
 
 (provide 'misc)
 ;;; misc.el ends here

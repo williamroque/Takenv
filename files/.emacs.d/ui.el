@@ -16,6 +16,10 @@ scroll-step 1)
   (setq-local display-line-numbers
               (if (equal display-line-numbers nil) 'relative nil)))
 
+(add-hook 'prog-mode-hook (lambda ()
+                            (unless (equal (buffer-name) "*scratch*")
+                              (toggle-line-numbers))))
+
 ;; hide line numbers for term
 (add-hook 'term-mode-hook (lambda () (setq-local display-line-numbers nil)))
 

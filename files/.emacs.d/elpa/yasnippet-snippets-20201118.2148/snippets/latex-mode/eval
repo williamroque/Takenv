@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eval
+# key: ev
+# --
+\biggr]_{${1:a}}^{${2:b}}$0
