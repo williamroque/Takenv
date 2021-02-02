@@ -122,8 +122,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 ;; increment/decrement numbers
-(evil-leader/set-key "+" 'evil-numbers/inc-at-pt)
-(evil-leader/set-key "-" 'evil-numbers/dec-at-pt)
+(evil-leader/set-key "]" 'evil-numbers/inc-at-pt)
+(evil-leader/set-key "[" 'evil-numbers/dec-at-pt)
 
 ;; move cursor to the right when splitting
 (setq evil-vsplit-window-right t)
@@ -135,7 +135,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (defun cautious-line-toggle ()
   "Toggle line numbers temporarily if began-line-toggle is nil"
   (interactive)
-  (if (not began-line-toggle)
+  (if (and (not began-line-toggle) (not (derived-mode-p 'prog-mode)))
       (progn
         (toggle-line-numbers)
         (setq began-line-toggle t))))

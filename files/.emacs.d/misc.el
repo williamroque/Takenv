@@ -159,9 +159,11 @@
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 (toggle-truncate-lines)
 
-;; send esc to vterm properly
+;; use C-return to send escape to vterm
 (add-hook 'vterm-mode-hook
-            (lambda () (local-set-key [escape] #'(vterm-send-key "<escape>"))))
+          (lambda () (local-set-key (kbd "<C-return>") (lambda ()
+                                                         (interactive)
+                                                         (vterm-send-key "<escape>")))))
 
 ;; open clipboard contents as a path
 (defun open-clipboard-path ()
@@ -264,6 +266,12 @@
 
 ;; use RET to follow links
 (add-to-list 'org-link-frame-setup '(file . find-file))
+
+;; fix python linting issue
+(custom-set-variables
+ '(flycheck-python-flake8-executable "python")
+ '(flycheck-python-pycompile-executable "python")
+ '(flycheck-python-pylint-executable "python"))
 
 (provide 'misc)
 ;;; misc.el ends here
