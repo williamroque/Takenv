@@ -109,3 +109,6 @@ fi
 
 # prevent command history from registering with space
 setopt histignorespace
+
+# prevent unwanted percent sign for partial line breaks
+unsetopt prompt_cr prompt_sp

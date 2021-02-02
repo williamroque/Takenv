@@ -1,6 +1,9 @@
 ;; configure helm
 (helm-mode 1)
 
+;; change scratch buffer message
+;; (setq initial-scratch-message "")
+
 ;; open the minibuffer with SPC+SPC (leader+SPC)
 (evil-leader/set-key "SPC" 'helm-mini)
 
@@ -36,7 +39,9 @@
             (define-key vterm-mode-map (kbd "M-h") 'evil-window-left)
             (define-key vterm-mode-map (kbd "M-j") 'evil-window-down)
             (define-key vterm-mode-map (kbd "M-k") 'evil-window-up)
-            (define-key vterm-mode-map (kbd "M-l") 'evil-window-right)))
+            (define-key vterm-mode-map (kbd "M-l") 'evil-window-right)
+            (setq-local evil-insert-state-cursor '("#aaa" box))))
+
 
 ;; Rust LSP
 (setq lsp-rust-server 'rust-analyzer)
@@ -272,6 +277,12 @@
  '(flycheck-python-flake8-executable "python")
  '(flycheck-python-pycompile-executable "python")
  '(flycheck-python-pylint-executable "python"))
+
+;; stop weird indentation guides from elpy
+(add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1)))
+
+;; use backslash to end search highlighting
+(define-key evil-normal-state-map (kbd "\\") 'evil-ex-nohighlight)
 
 (provide 'misc)
 ;;; misc.el ends here

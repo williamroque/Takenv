@@ -21,7 +21,14 @@
 (setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; convenient enable spellcheck
-(evil-leader/set-key "s" 'flyspell-prog-mode)
+(evil-leader/set-key "s" (lambda ()
+                           (interactive)
+                           (if (and (derived-mode-p 'prog-mode) (not (equal (buffer-name) "*scratch*")))
+                               (flyspell-prog-mode)
+                             (progn
+                               (flyspell-mode)
+                               (if (equal (buffer-name) "*scratch*")
+                                   (flycheck-mode -1))))))
 
 ;; convenient language changing
 (let ((langs '("american" "brasileiro")))

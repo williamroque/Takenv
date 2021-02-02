@@ -8,7 +8,11 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#3c3836" "#fb4933" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
+ '(evil-search-module 'evil-search)
  '(evil-undo-system 'undo-tree)
+ '(flycheck-python-flake8-executable "python")
+ '(flycheck-python-pycompile-executable "python")
+ '(flycheck-python-pylint-executable "python")
  '(global-undo-tree-mode t)
  '(helm-completion-style 'emacs)
  '(helm-minibuffer-history-key "M-p")
