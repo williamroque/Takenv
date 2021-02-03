@@ -108,12 +108,8 @@ scroll-step 1)
 (add-hook 'python-mode-hook
           (lambda ()
             (font-lock-add-keywords nil
-                                    '(("\\.\\([A-Za-z_]*\\)(.*" 1
-                                       'method-call-lock t)))
-            (font-lock-add-keywords nil
-                                    '(("\\([=+-/*><]\\)" .
-                                       'operator-lock)))
-            ))
+                                    '(("\\.\\([A-Za-z_]*?\\)(.*?)" 1 'method-call-lock t)
+                                      ("\\([=+-/*><]\\)" . 'operator-lock)))))
 
 (set-face-attribute 'font-lock-function-name-face nil
                     :foreground "#6CA17A")

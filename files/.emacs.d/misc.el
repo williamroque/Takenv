@@ -71,6 +71,9 @@
 (load-user-file "brazil-holidays.el")
 (setq calendar-holidays holiday-brazil-holidays)
 
+;; gitignore major mode 
+(load-user-file "gitignore-mode.el")
+
 ;; convenient way to open lisp eval
 (global-set-key (kbd "C-;") 'eval-expression)
 
@@ -215,7 +218,7 @@
 
 ;; change template placeholder
 (defvar my-placeholder-text "<++>"
-  "Placeholder text to be replaced by `my-clear-next-placeholder'")
+  "Placeholder text to be replaced by `my-clear-next-placeholder'.")
 
 (defun my-clear-next-placeholder (arg)
   "Jump forward to next occurrence of `my-placeholder-text' and remove."

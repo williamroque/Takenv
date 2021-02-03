@@ -42,7 +42,7 @@
   (lambda () (interactive) (scroll-down 3)))
 
 ;; convenient macro execution
-;; (define-key evil-normal-state-map (kbd "RET") 'evil-execute-macro)
+(evil-define-key 'normal 'global (kbd "SPC RET") "@q")
 
 ;; quick exit insert mode
 (defun my-jk ()
@@ -63,6 +63,7 @@
 ;; I'm not proud of it, I'm changing it if I can, but it works
 (add-hook 'prog-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
 (add-hook 'text-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
+(add-hook 'conf-unix-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
 
 ;; prevent jk in vterm mode
 (add-hook 'vterm-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") nil)))
