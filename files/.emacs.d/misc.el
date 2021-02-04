@@ -321,5 +321,15 @@
 
 (evil-leader/set-key (kbd "0") 'remove-all-highlight)
 
+;; open non-fullscreen window
+(evil-leader/set-key (kbd "-") (lambda ()
+                                 (interactive)
+                                 (make-frame-command)
+                                 (run-at-time .2 nil (lambda ()
+                                                       (set-frame-parameter nil 'fullscreen nil)))))
+
+;; switch frames easily
+(evil-leader/set-key (kbd "o") 'other-frame)
+
 (provide 'misc)
 ;;; misc.el ends here
