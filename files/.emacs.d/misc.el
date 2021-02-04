@@ -287,5 +287,39 @@
 ;; use backslash to end search highlighting
 (define-key evil-normal-state-map (kbd "\\") 'evil-ex-nohighlight)
 
+;; mark current line
+(defun find-overlays-specifying (prop pos)
+  (let ((overlays (overlays-at pos))
+        found)
+    (while overlays
+      (let ((overlay (car overlays)))
+        (if (overlay-get overlay prop)
+            (setq found (cons overlay found))))
+      (setq overlays (cdr overlays)))
+    found))
+
+(defun highlight-or-dehighlight-line ()
+  (interactive)
+  (if (find-overlays-specifying
+       'line-highlight-overlay-marker
+       (line-beginning-position))
+      (remove-overlays (line-beginning-position) (+ 1 (line-end-position)))
+    (let ((overlay-highlight (make-overlay
+                              (line-beginning-position)
+                              (+ 1 (line-end-position)))))
+        (overlay-put overlay-highlight 'face '(:background "#313031"))
+        (overlay-put overlay-highlight 'line-highlight-overlay-marker t))))
+
+
+(evil-leader/set-key (kbd "9") 'highlight-or-dehighlight-line)
+
+;; remove all line highlights
+(defun remove-all-highlight ()
+  (interactive)
+  (remove-overlays (point-min) (point-max))
+  )
+
+(evil-leader/set-key (kbd "0") 'remove-all-highlight)
+
 (provide 'misc)
 ;;; misc.el ends here
