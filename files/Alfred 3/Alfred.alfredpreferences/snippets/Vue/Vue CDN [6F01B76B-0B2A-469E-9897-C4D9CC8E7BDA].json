@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "<script src=\"https:\/\/cdn.jsdelivr.net\/npm\/vue\/dist\/vue.js\"><\/script>",
+    "uid" : "6F01B76B-0B2A-469E-9897-C4D9CC8E7BDA",
+    "name" : "Vue CDN",
+    "keyword" : "cdn"
+  }
+}

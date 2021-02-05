@@ -2,6 +2,7 @@ trash files
 mkdir files
 
 cp -R ~/dragon files
+cp -R ~/Library/Application\ Support/Alfred\ 3/ files/Alfred\ 3
 
 cp ~/.tmux.conf files
 cp ~/.zshrc files
