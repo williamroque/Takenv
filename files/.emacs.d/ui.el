@@ -108,7 +108,7 @@ scroll-step 1)
 (add-hook 'python-mode-hook
           (lambda ()
             (font-lock-add-keywords nil
-                                    '(("\\.\\([A-Za-z_]*?\\)(.*?)" 1 'method-call-lock t)
+                                    '(("^[^#][^#]*\\.\\([A-Za-z_]*?\\)(.*?)" 1 'method-call-lock t)
                                       ("\\([=+-/*><]\\)" . 'operator-lock)))))
 
 (set-face-attribute 'font-lock-function-name-face nil
@@ -130,6 +130,9 @@ scroll-step 1)
 
 ;; display time
 (display-time-mode 1)
+
+;; let rainbows brighten your day every day, whether you like it or not
+(add-hook 'prog-mode-hook 'rainbow-mode)
 
 ;; resize frame naturally (cf. by columns/rows)
 (setq frame-resize-pixelwise t)
