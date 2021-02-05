@@ -48,6 +48,7 @@ alias sec="python ~/secure.py"
 alias imgtxt="python ~/imgtxt.py"
 alias emc="/usr/local/bin/emacsclient -c -F '((left . 317) (top . 146))' -e '(select-frame-set-input-focus (selected-frame))'"
 alias mframe="python -c 'import os; os.system(\"/Users/jetblack/mframe/GUI/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron /Users/jetblack/mframe/GUI/\")'"
+alias emd="emacs --daemon; killall iTerm2"
 
 function change() {
     git add .
