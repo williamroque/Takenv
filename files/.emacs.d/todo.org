@@ -2,4 +2,3 @@
 - Convert config into .org
 - Look into magit
 - Explore deeper into org-mode
-- Migrate to use-package
