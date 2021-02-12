@@ -51,6 +51,15 @@ alias mframe="python -c 'import os; os.system(\"/Users/jetblack/mframe/GUI/node_
 alias emd="emacs --daemon; killall iTerm2"
 alias led="~/led"
 
+function show() {
+    osascript -e "display alert \"$1\""
+}
+
+function notify() {
+    eval "$*"
+    show 'Execution finished'
+}
+
 function change() {
     git add .
     git commit -m $1

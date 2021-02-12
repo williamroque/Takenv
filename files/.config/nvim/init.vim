@@ -102,7 +102,10 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
 " terminal
-tnoremap <Esc> <C-\><C-n>
+if has("nvim")
+    au TermOpen * tnoremap <Esc> <c-\><c-n>
+    au FileType fzf tunmap <Esc>
+endif
 
 " close window
 noremap <silent> <leader>qu :silent clo<CR>
@@ -169,7 +172,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 " version control
 Plug 'airblade/vim-gitgutter'
@@ -326,8 +329,8 @@ highlight CocRustChainingHint ctermbg=NONE ctermfg=8
 let g:user_emmet_mode='ni'
 let g:user_emmet_leader_key='§'
 
-" save files quickly
-map <Leader>f :w<CR>
+" save files quickly if content has changed
+nnoremap <silent> <Leader>f :up<CR>
 
 " save and close file
 map <Leader>x :x<CR>
@@ -357,7 +360,7 @@ set clipboard=unnamed
 set noeb vb t_vb=
 
 " file navigation
-nnoremap <Leader>of :Files<CR>
+nnoremap <Leader><Space> :Files<CR>
 
 " digraphs
 digraph ra 8594
