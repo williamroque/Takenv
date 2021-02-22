@@ -39,7 +39,7 @@
   (evil-collection-define-key 'normal 'racer-mode-map
     "gd" 'racer-find-definition
     (kbd "C-t") 'pop-tag-mark
-    (kbd "C-]") 'racer-describe)
+    "K" 'racer-describe)
 
   (evil-collection-define-key 'normal 'racer-help-mode-map
     "q" 'quit-window))

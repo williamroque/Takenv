@@ -6,6 +6,19 @@
 	<string></string>
 	<key>connections</key>
 	<dict>
+		<key>63B54276-6FE2-4E12-B610-C2B6FB9CDA43</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B02FA8B8-1971-4091-9A62-B7D43223FCD7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>80FDAFF2-62E1-44A9-8274-3F5422BB6462</key>
 		<array>
 			<dict>
@@ -76,17 +89,45 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ipy</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Open ipython in iTerm2</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>63B54276-6FE2-4E12-B610-C2B6FB9CDA43</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>63B54276-6FE2-4E12-B610-C2B6FB9CDA43</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
 		<key>80FDAFF2-62E1-44A9-8274-3F5422BB6462</key>
 		<dict>
 			<key>xpos</key>
 			<integer>180</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>50</integer>
 		</dict>
 		<key>B02FA8B8-1971-4091-9A62-B7D43223FCD7</key>
 		<dict>

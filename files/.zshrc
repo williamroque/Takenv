@@ -22,7 +22,7 @@ export HOMEBREW_GITHUB_API_TOKEN=27a1744305cfd7a7d58a16c2c7b9a0bbf90b1b22
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$PATH:$HOME/cbin
 
-export PYTHONPATH="${PYTHONPATH}:/Users/jetblack/maxwell/src/"
+export PYTHONPATH="${PYTHONPATH}:/Users/jetblack/mframe/src/"
 export PATH="$PATH:/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/bin"
 export PATH="$PATH:/Users/jetblack-work/Library/Python/3.8/bin"
 
@@ -47,7 +47,7 @@ alias gest="python ~/gestures.py"
 alias sec="python ~/secure.py"
 alias imgtxt="python ~/imgtxt.py"
 alias emc="/usr/local/bin/emacsclient -c -F '((left . 317) (top . 146))' -e '(select-frame-set-input-focus (selected-frame))'"
-alias maxwell="/Users/jetblack/maxwell/GUI/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron /Users/jetblack/maxwell/GUI/"
+alias mframe="python -c 'import os; os.system(\"/Users/jetblack/mframe/GUI/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron /Users/jetblack/mframe/GUI/\")'"
 alias emd="emacs --daemon; killall iTerm2"
 alias led="~/led"
 
@@ -56,8 +56,11 @@ function show() {
 }
 
 function notify() {
-    eval "$*"
-    show 'Execution finished'
+    if eval "$*" ; then
+        show 'Execution finished.'
+    else
+        show 'Task failed successfully.'
+    fi
 }
 
 function change() {

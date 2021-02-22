@@ -202,5 +202,8 @@
   ;; create scratch buffer
   (evil-leader/set-key "b" '(lambda () (interactive) (switch-to-buffer "*scratch*"))))
 
+;; install pdf-tools
+(pdf-tools-install)
+
 (provide 'misc)
 ;;; misc.el ends here
