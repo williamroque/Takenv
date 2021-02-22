@@ -75,6 +75,7 @@
              (add-hook 'prog-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
              (add-hook 'text-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
              (add-hook 'conf-unix-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
+             (add-hook 'conf-toml-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") 'my-jk)))
 
              ;; prevent jk in vterm mode
              (add-hook 'vterm-mode-hook '(lambda() (interactive) (define-key evil-insert-state-local-map (kbd "j") nil)))

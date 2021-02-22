@@ -20,11 +20,17 @@
 (defun run-current-python ()
   "Run current Python file."
   (interactive)
-  (shell-command (format "export PYTHONPATH='${PYTHONPATH}:/Users/jetblack/mframe/src/' && python '%s'" (buffer-file-name))))
+  (shell-command-to-string (format "export PYTHONPATH='${PYTHONPATH}:/Users/jetblack/maxwell/src/' && python '%s'" (buffer-file-name))))
 
 (use-package evil-leader
   :config
-  (evil-leader/set-key "," 'run-current-python))
+  (evil-leader/set-key "," (lambda ()
+                             (interactive)
+                             (princ (run-current-python))))
+  (evil-leader/set-key "." (lambda ()
+                             (interactive)
+                             (forward-char)
+                             (save-excursion (insert (string-trim (run-current-python)))))))
 
 ;; fix python linting issue
 (custom-set-variables

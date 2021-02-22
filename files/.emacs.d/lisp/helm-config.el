@@ -36,7 +36,10 @@
   (evil-leader/set-key "SPC" 'helm-mini)
 
   ;; more convenient way to open minibuffer
-  (evil-leader/set-key ";" 'helm-M-x))
+  (evil-leader/set-key ";" 'helm-M-x)
+
+  ;; for helm-ag
+  (evil-leader/set-key "g" 'helm-ag))
 
 (provide 'helm-config)
 ;;; helm-config.el ends here
