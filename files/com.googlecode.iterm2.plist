@@ -362,23 +362,12 @@
 	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x67-0x40000-0x5</key>
+		<key>0x19-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>11</integer>
-			<key>Label</key>
-			<string></string>
+			<integer>39</integer>
 			<key>Text</key>
-			<string>0x1B</string>
-		</dict>
-		<key>0x6b-0x100000-0x0</key>
-		<dict>
-			<key>Action</key>
-			<integer>12</integer>
-			<key>Label</key>
 			<string></string>
-			<key>Text</key>
-			<string>clear\n</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -386,15 +375,6 @@
 			<integer>32</integer>
 			<key>Text</key>
 			<string></string>
-		</dict>
-		<key>0xd-0x40000-0x24</key>
-		<dict>
-			<key>Action</key>
-			<integer>11</integer>
-			<key>Label</key>
-			<string></string>
-			<key>Text</key>
-			<string>0x1B</string>
 		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
@@ -926,16 +906,6 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
-				<key>0x75-0x100000-0x20</key>
-				<dict>
-					<key>Action</key>
-					<integer>25</integer>
-					<key>Label</key>
-					<string></string>
-					<key>Text</key>
-					<string>Clear Buffer
-Clear Buffer</string>
-				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
 					<key>Action</key>
@@ -1232,8 +1202,54 @@ Clear Buffer</string>
 			<string></string>
 			<key>Show Mark Indicators</key>
 			<false/>
+			<key>Show Status Bar</key>
+			<false/>
 			<key>Silence Bell</key>
 			<true/>
+			<key>Status Bar Layout</key>
+			<dict>
+				<key>advanced configuration</key>
+				<dict>
+					<key>algorithm</key>
+					<integer>0</integer>
+					<key>auto-rainbow style</key>
+					<integer>0</integer>
+					<key>font</key>
+					<string>.AppleSystemUIFont 12</string>
+					<key>remove empty components</key>
+					<false/>
+				</dict>
+				<key>components</key>
+				<array>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarClockComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>format</key>
+								<string>M/dd h:mm</string>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+				</array>
+			</dict>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1514,6 +1530,8 @@ Clear Buffer</string>
 			<false/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>0.10000000000000001</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1620,17 +1638,17 @@ Clear Buffer</string>
 			<key>HotKey Key Code</key>
 			<integer>0</integer>
 			<key>HotKey Modifier Activation</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>HotKey Modifier Flags</key>
 			<integer>0</integer>
 			<key>HotKey Window Animates</key>
 			<false/>
 			<key>HotKey Window AutoHides</key>
-			<true/>
+			<false/>
 			<key>HotKey Window Dock Click Action</key>
 			<integer>2</integer>
 			<key>HotKey Window Floats</key>
-			<true/>
+			<false/>
 			<key>HotKey Window Reopens On Activation</key>
 			<false/>
 			<key>Idle Code</key>
@@ -2070,6 +2088,14 @@ Clear Buffer</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
+	<false/>
+	<key>RestoreWindowContents</key>
+	<false/>
+	<key>RunJobsInServers</key>
+	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
+	<key>ShowSessionRestoredBanner</key>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
