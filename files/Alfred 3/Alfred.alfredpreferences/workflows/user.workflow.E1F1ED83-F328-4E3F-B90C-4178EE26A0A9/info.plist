@@ -19,6 +19,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>320CE612-FFED-4441-8F4A-908ED6D82313</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9BBEDC47-5F60-4CEA-8B1C-EB589F199882</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string></string>
@@ -30,6 +43,27 @@
 	<string>maxwell</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>maxwell</string>
+				<key>subtext</key>
+				<string>Start maxwell server</string>
+				<key>text</key>
+				<string>maxwell</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>05D25944-5D0D-4B93-BFB2-6FBF222BF531</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -56,23 +90,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>maxwell</string>
-				<key>subtext</key>
-				<string>Start maxwell server</string>
-				<key>text</key>
-				<string>maxwell</string>
-				<key>withspace</key>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
 				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>46</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>M</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>05D25944-5D0D-4B93-BFB2-6FBF222BF531</string>
+			<string>320CE612-FFED-4441-8F4A-908ED6D82313</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -82,9 +126,16 @@
 		<key>05D25944-5D0D-4B93-BFB2-6FBF222BF531</key>
 		<dict>
 			<key>xpos</key>
-			<integer>220</integer>
+			<integer>160</integer>
 			<key>ypos</key>
-			<integer>230</integer>
+			<integer>100</integer>
+		</dict>
+		<key>320CE612-FFED-4441-8F4A-908ED6D82313</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 		<key>9BBEDC47-5F60-4CEA-8B1C-EB589F199882</key>
 		<dict>

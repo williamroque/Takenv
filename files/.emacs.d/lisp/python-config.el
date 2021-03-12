@@ -55,5 +55,8 @@
                                     '(("^[^#][^#]*\\.\\([A-Za-z_]*?\\)(.*?)" 1 'method-call-lock t)
                                       ("\\([=+-/*><]\\)" . 'operator-lock)))))
 
+;; set path
+(setenv "PYTHONPATH" (shell-command-to-string "$SHELL --login -c 'echo -n $PYTHONPATH'"))
+
 (provide 'python-config)
 ;;; python-config.el ends here

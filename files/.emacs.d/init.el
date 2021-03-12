@@ -49,6 +49,10 @@
   (use-package helm-config
     :load-path "lisp/")
   (use-package vterm-config
+    :load-path "lisp/")
+  (use-package ranger-config
+    :load-path "lisp/")
+  (use-package auctex-config
     :load-path "lisp/"))
 
 ;;; init.el ends here
@@ -57,12 +61,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-python-flake8-executable "python")
- '(flycheck-python-pycompile-executable "python")
- '(flycheck-python-pylint-executable "python")
+ '(flycheck-python-flake8-executable "python" t)
+ '(flycheck-python-pycompile-executable "python" t)
+ '(flycheck-python-pylint-executable "python" t)
  '(helm-minibuffer-history-key "M-p")
  '(package-selected-packages
-   '(pdf-tools yasnippet-snippets vterm use-package undo-tree typescript-mode smooth-scrolling ranger rainbow-mode racer paredit org-download magit lsp-mode json-mode helm-projectile helm-ag gruvbox-theme git-gutter flycheck exec-path-from-shell evil-surround evil-numbers evil-leader evil-collection elpy doom-themes define-word cmake-mode)))
+   '(auctex pdf-tools yasnippet-snippets vterm use-package undo-tree typescript-mode smooth-scrolling ranger rainbow-mode racer paredit org-download magit lsp-mode json-mode helm-projectile helm-ag gruvbox-theme git-gutter flycheck exec-path-from-shell evil-surround evil-numbers evil-leader evil-collection elpy doom-themes define-word cmake-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -85,4 +89,3 @@
  '(org-block ((t (:background "#121112"))))
  '(org-level-2 ((t (:box (:line-width 1 :color "unemphasizedSelectedContentBackgroundColor") :weight thin))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#799")))))
-(put 'erase-buffer 'disabled nil)

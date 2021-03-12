@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("ranger-a"
+ (filename . "~/")
+ (front-context-string . "active.scpt\n  -r")
+ (rear-context-string . "189 02-22 12:59 ")
+ (position . 849))
+("ranger-n"
+ (filename . "~/Documents/Education/Current/NM/Lesson 2/")
+ (front-context-string . "Section 2.5:6:7/")
+ (rear-context-string . "160 03-04 10:19 ")
+ (position . 219))
+)

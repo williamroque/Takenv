@@ -24,13 +24,20 @@
 (defun export-and-open-html ()
   "Export \"org-mode\" file to HTML and open all HTML files in the directory."
   (interactive)
-  (org-html-export-to-html)
-  (shell-command "open *.html"))
+  (shell-command-to-string (format "open '%s'" (org-html-export-to-html))))
+
+;; convenient way to export to latex/PDF in org-mode
+(defun export-and-open-pdf ()
+  "Export \"org-mode\" file to latex and preview."
+  (interactive)
+  (find-file-other-window (org-latex-export-to-pdf)))
 
 ;; evil-leader bindings
 (use-package evil-leader
   :config
   (evil-leader/set-key "h" 'export-and-open-html)
+
+  (evil-leader/set-key "p" 'export-and-open-pdf)
 
   ;; convenient way to toggle latex preview in org-mode
   (evil-leader/set-key "l" 'org-latex-preview)
@@ -106,6 +113,13 @@
 ;; toggle truncate lines in org-mode
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 (toggle-truncate-lines)
+
+
+;; make sure M-h binding works
+(add-hook 'org-mode-hook
+          (lambda ()
+            (define-key org-mode-map "\M-h" nil)
+            (global-set-key (kbd "M-h") 'evil-window-left)))
 
 (provide 'org-config)
 ;;; org-config.el ends here

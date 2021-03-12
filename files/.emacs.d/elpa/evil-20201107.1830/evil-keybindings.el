@@ -76,7 +76,7 @@
 
 (evil-add-hjkl-bindings Info-mode-map 'motion
   "0" 'evil-digit-argument-or-evil-beginning-of-line
-  (kbd "\M-h") 'Info-help   ; "h"
+  ;;(kbd "\M-h") 'Info-help   ; "h"
   "\C-t" 'Info-history-back ; "l"
   "\C-o" 'Info-history-back
   " " 'Info-scroll-up

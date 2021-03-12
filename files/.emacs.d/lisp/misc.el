@@ -177,7 +177,10 @@
   (evil-leader/set-key (kbd "9") 'highlight-or-dehighlight-line)
 
   ;; convenient way to start markdown preview
-  (evil-leader/set-key "m" 'livedown-preview)
+  ;;(evil-leader/set-key "m" 'livedown-preview)
+
+  ;; minimize frame
+  (evil-leader/set-key "m" 'suspend-frame)
 
   ;; delete current file
   (evil-leader/set-key "d" (lambda ()
@@ -204,6 +207,10 @@
 
 ;; install pdf-tools
 (pdf-tools-install)
+
+;; split vertically by default
+(setq split-width-threshold 0)
+(setq split-height-threshold nil)
 
 (provide 'misc)
 ;;; misc.el ends here

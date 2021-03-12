@@ -86,10 +86,10 @@ mode."
     "gk" 'outline-backward-same-level
     "gj" 'outline-forward-same-level
 
-    (kbd "M-h") 'outline-promote ; Org-mode has "M-<left>", Evil-org has "M-h"
-    (kbd "M-j") 'outline-move-subtree-down ; Org-mode has "M-<down>", Evil-org has "M-j"
-    (kbd "M-k") 'outline-move-subtree-up ; Org-mode has "M-<up>", Evil-org has "M-k"
-    (kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
+    ;;(kbd "M-h") 'outline-promote ; Org-mode has "M-<left>", Evil-org has "M-h"
+    ;;(kbd "M-j") 'outline-move-subtree-down ; Org-mode has "M-<down>", Evil-org has "M-j"
+    ;;(kbd "M-k") 'outline-move-subtree-up ; Org-mode has "M-<up>", Evil-org has "M-k"
+    ;;(kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
 
     (kbd "M-<return>") 'outline-insert-heading)) ; Org-mode has "M-<return>"
 
