@@ -22,10 +22,9 @@
   :ensure t
   :config
   (setq helm-mini-default-sources '(helm-source-projectile-recentf-list
-                                    helm-source-projectile-buffers-list
+                                    helm-source-buffers-list
                                     helm-source-projectile-projects
                                     helm-source-projectile-files-list
-                                    helm-source-buffers-list
                                     helm-source-recentf)))
 
 (use-package evil-leader

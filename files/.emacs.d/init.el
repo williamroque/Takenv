@@ -85,3 +85,4 @@
  '(org-block ((t (:background "#121112"))))
  '(org-level-2 ((t (:box (:line-width 1 :color "unemphasizedSelectedContentBackgroundColor") :weight thin))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#799")))))
+(put 'erase-buffer 'disabled nil)
