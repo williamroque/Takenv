@@ -728,6 +728,12 @@ body li {
   hyphens: auto;
 }
 
+body p {
+  word-wrap: break-all;
+  text-align: justify;
+  hyphens: auto;
+}
+
 body li>p {
   margin-top: 16px;
 }
